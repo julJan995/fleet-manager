@@ -1,0 +1,90 @@
+<div matt-dialog-title>
+  <h1 class="title">Vehicle's Set Form</h1>
+</div>
+<div mat-dialog-content
+      class="form-content">
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Truck's plate</mat-label>
+      <input matInput type="text" placeholder="Ex. CBY20U9">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Semitrailer's plate</mat-label>
+      <input matInput type="text" placeholder="Ex. CBY20U9">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Type of semitrailer</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let type of trailerTypes" [value]="type">
+          {{ type }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Truck's servicing validity</mat-label>
+      <input matInput [matDatepicker]="picker1">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Trailer's servicing validity</mat-label>
+      <input matInput [matDatepicker]="picker2">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Truck's insurance validity</mat-label>
+      <input matInput [matDatepicker]="picker3">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Trailer's insurance validity</mat-label>
+      <input matInput [matDatepicker]="picker4">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+      <mat-datepicker #picker4></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Driver's name</mat-label>
+      <input matInput type="text" placeholder="Name">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Driver's surname</mat-label>
+      <input matInput type="text" placeholder="Surname">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Phone number</mat-label>
+      <input matInput type="text" placeholder="+48 ">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email (not required)</mat-label>
+      <input matInput type="text" placeholder="E-mail">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions class="save-cancel-btns">
+  <button mat-raised-button>CANCEL</button>
+  <button mat-raised-button color="primary">SAVE</button>
+</div>
