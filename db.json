@@ -1,0 +1,33 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "vehicles": [
+    {
+      "truckPlate": "A",
+      "semitrailerPlate": "V",
+      "semitrailerType": "flatbed",
+      "truckService": "2023-05-30T22:00:00.000Z",
+      "trailerService": "2023-05-22T22:00:00.000Z",
+      "truckInsurance": "2023-05-30T22:00:00.000Z",
+      "trailerInsurance": "2023-05-20T22:00:00.000Z",
+      "driversName": "S",
+      "driversSurname": "S",
+      "id": 1
+    }
+  ]
+}

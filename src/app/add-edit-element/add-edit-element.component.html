@@ -1,24 +1,25 @@
 <div matt-dialog-title>
   <h1 class="title">Vehicle's Set Form</h1>
 </div>
+
+<form [formGroup]="truckForm" (ngSubmit)="onFormSubmit()">
 <div mat-dialog-content
       class="form-content">
-
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Truck's plate</mat-label>
-      <input matInput type="text" placeholder="Ex. CBY20U9">
+      <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="truckPlate">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Semitrailer's plate</mat-label>
-      <input matInput type="text" placeholder="Ex. CBY20U9">
+      <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="semitrailerPlate">
     </mat-form-field>
   </div>
 
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Type of semitrailer</mat-label>
-      <mat-select>
+      <mat-select formControlName="semitrailerType">
         <mat-option *ngFor="let type of trailerTypes" [value]="type">
           {{ type }}
         </mat-option>
@@ -29,7 +30,7 @@
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Truck's servicing validity</mat-label>
-      <input matInput [matDatepicker]="picker1">
+      <input matInput [matDatepicker]="picker1" formControlName="truckService">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
@@ -37,7 +38,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Trailer's servicing validity</mat-label>
-      <input matInput [matDatepicker]="picker2">
+      <input matInput [matDatepicker]="picker2" formControlName="trailerService">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2></mat-datepicker>
@@ -47,7 +48,7 @@
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Truck's insurance validity</mat-label>
-      <input matInput [matDatepicker]="picker3">
+      <input matInput [matDatepicker]="picker3" formControlName="truckInsurance">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
       <mat-datepicker #picker3></mat-datepicker>
@@ -55,7 +56,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Trailer's insurance validity</mat-label>
-      <input matInput [matDatepicker]="picker4">
+      <input matInput [matDatepicker]="picker4" formControlName="trailerInsurance">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
       <mat-datepicker #picker4></mat-datepicker>
@@ -65,11 +66,11 @@
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Driver's name</mat-label>
-      <input matInput type="text" placeholder="Name">
+      <input matInput type="text" placeholder="Name" formControlName="driversName">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Driver's surname</mat-label>
-      <input matInput type="text" placeholder="Surname">
+      <input matInput type="text" placeholder="Surname" formControlName="driversSurname">
     </mat-form-field>
   </div>
 
@@ -86,5 +87,6 @@
 </div>
 <div mat-dialog-actions class="save-cancel-btns">
   <button mat-raised-button>CANCEL</button>
-  <button mat-raised-button color="primary">SAVE</button>
+  <button mat-raised-button color="primary" type="submit">SAVE</button>
 </div>
+</form>
