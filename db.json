@@ -18,16 +18,64 @@
   },
   "vehicles": [
     {
-      "truckPlate": "A",
-      "semitrailerPlate": "V",
+      "truckPlate": "CBY5029S",
+      "semitrailerPlate": "CBY5478U",
       "semitrailerType": "flatbed",
       "truckService": "2023-05-30T22:00:00.000Z",
-      "trailerService": "2023-05-22T22:00:00.000Z",
-      "truckInsurance": "2023-05-30T22:00:00.000Z",
-      "trailerInsurance": "2023-05-20T22:00:00.000Z",
-      "driversName": "S",
-      "driversSurname": "S",
-      "id": 1
+      "trailerService": "2023-05-08T22:00:00.000Z",
+      "truckInsurance": "2023-05-06T22:00:00.000Z",
+      "trailerInsurance": "2023-05-28T22:00:00.000Z",
+      "driversName": "Test",
+      "driversSurname": "Test",
+      "id": 4
+    },
+    {
+      "truckPlate": "Next",
+      "semitrailerPlate": "Test",
+      "semitrailerType": "dump",
+      "truckService": "2023-05-22T22:00:00.000Z",
+      "trailerService": "2023-05-14T22:00:00.000Z",
+      "truckInsurance": "2023-05-20T22:00:00.000Z",
+      "trailerInsurance": "2023-03-12T23:00:00.000Z",
+      "driversName": "Test1",
+      "driversSurname": "Test2",
+      "id": 5
+    },
+    {
+      "truckPlate": "A",
+      "semitrailerPlate": "A",
+      "semitrailerType": "flatbed",
+      "truckService": "2023-05-30T22:00:00.000Z",
+      "trailerService": "2023-07-06T22:00:00.000Z",
+      "truckInsurance": "2023-05-18T22:00:00.000Z",
+      "trailerInsurance": "2023-05-07T22:00:00.000Z",
+      "driversName": "Q",
+      "driversSurname": "Q",
+      "id": 6
+    },
+    {
+      "truckPlate": "A",
+      "semitrailerPlate": "A",
+      "semitrailerType": "",
+      "truckService": "2023-05-29T22:00:00.000Z",
+      "trailerService": "2023-09-03T22:00:00.000Z",
+      "truckInsurance": "2023-05-09T22:00:00.000Z",
+      "trailerInsurance": "2023-09-05T22:00:00.000Z",
+      "driversName": "Test",
+      "driversSurname": "Test222",
+      "id": 7
+    },
+    {
+      "truckPlate": "TEST",
+      "semitrailerPlate": "TEST",
+      "semitrailerType": "flatbed",
+      "truckService": "2023-05-30T22:00:00.000Z",
+      "trailerService": "2023-05-05T22:00:00.000Z",
+      "truckInsurance": "2023-05-04T22:00:00.000Z",
+      "trailerInsurance": "2023-05-07T22:00:00.000Z",
+      "driversName": "TEST",
+      "driversSurname": "TEST",
+      "id": 8
     }
   ]
 }

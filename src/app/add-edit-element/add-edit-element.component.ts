@@ -1,6 +1,6 @@
-import { DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { VehicleService } from '../services/vehicle.service';
 
 @Component({
@@ -20,7 +20,10 @@ export class AddEditElementComponent implements OnInit {
     "tipper"
   ]
 
-  constructor(private _form: FormBuilder, private _vehicleService: VehicleService, private _dialogRef: DialogRef<AddEditElementComponent>) {
+  constructor(
+    private _form: FormBuilder,
+    private _vehicleService: VehicleService,
+    private _dialogRef: MatDialogRef<AddEditElementComponent>) {
     this.truckForm = this._form.group({
       truckPlate:'',
       semitrailerPlate: '',
@@ -42,7 +45,7 @@ export class AddEditElementComponent implements OnInit {
       this._vehicleService.addVehicle(this.truckForm.value).subscribe({
         next: (value: any) => {
           alert('vehicle added succesfuly');
-          this._dialogRef.close();
+          this._dialogRef.close(true);
         },
         error: (err: any) => {
           console.log(err);
