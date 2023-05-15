@@ -18,18 +18,6 @@
   },
   "vehicles": [
     {
-      "truckPlate": "CBY5029S",
-      "semitrailerPlate": "CBY5478U",
-      "semitrailerType": "flatbed",
-      "truckService": "2023-05-30T22:00:00.000Z",
-      "trailerService": "2023-05-08T22:00:00.000Z",
-      "truckInsurance": "2023-05-06T22:00:00.000Z",
-      "trailerInsurance": "2023-05-28T22:00:00.000Z",
-      "driversName": "Test",
-      "driversSurname": "Test",
-      "id": 4
-    },
-    {
       "truckPlate": "Next",
       "semitrailerPlate": "Test",
       "semitrailerType": "dump",
@@ -76,6 +64,90 @@
       "driversName": "TEST",
       "driversSurname": "TEST",
       "id": 8
+    },
+    {
+      "truckPlate": "",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 9
+    },
+    {
+      "truckPlate": "",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 10
+    },
+    {
+      "truckPlate": "",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 11
+    },
+    {
+      "truckPlate": "",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 12
+    },
+    {
+      "truckPlate": "rr",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 13
+    },
+    {
+      "truckPlate": "sdfsdsd",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 14
+    },
+    {
+      "truckPlate": "sdsdsd",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 15
     }
   ]
 }
