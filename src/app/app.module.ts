@@ -16,13 +16,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
-import { AddEditElementComponent } from './add-edit-element/add-edit-element.component';
+import { AddEditElementComponent } from './components/add-edit-element/add-edit-element.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { ConfigPageComponent } from './components/config-page/config-page.component';
+import { HeaderComponent } from './components/header/header.component';
+import { TableContentComponent } from './components/table-content/table-content.component';
+import { OptionTabsComponent } from './components/option-tabs/option-tabs.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AddEditElementComponent
+    AddEditElementComponent,
+    ConfigPageComponent,
+    HeaderComponent,
+    TableContentComponent,
+    OptionTabsComponent
   ],
   imports: [
     BrowserModule,

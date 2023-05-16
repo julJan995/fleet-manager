@@ -148,6 +148,42 @@
       "driversName": "",
       "driversSurname": "",
       "id": 15
+    },
+    {
+      "truckPlate": "",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 16
+    },
+    {
+      "truckPlate": "A",
+      "semitrailerPlate": "S",
+      "semitrailerType": "FlatBed",
+      "truckService": "2023-05-08T22:00:00.000Z",
+      "trailerService": "2023-05-08T22:00:00.000Z",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "testtest",
+      "driversSurname": "testtest",
+      "id": 17
+    },
+    {
+      "truckPlate": "",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "id": 18
     }
   ]
 }

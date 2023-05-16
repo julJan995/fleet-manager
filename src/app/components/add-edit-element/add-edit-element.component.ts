@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { VehicleService } from '../services/vehicle.service';
+import { SemitrailerType, Vehicle } from '../../models/vehicle';
+import { VehicleService } from '../../services/vehicle.service';
 
 @Component({
   selector: 'app-add-edit-element',
@@ -11,7 +12,7 @@ import { VehicleService } from '../services/vehicle.service';
 export class AddEditElementComponent implements OnInit {
   truckForm: FormGroup;
   trailerTypes: string[] = [
-    "flatbed",
+    SemitrailerType.FlatBed,
     "lowboy",
     "reefer",
     "dump",
@@ -24,6 +25,7 @@ export class AddEditElementComponent implements OnInit {
     private _form: FormBuilder,
     private _vehicleService: VehicleService,
     private _dialogRef: MatDialogRef<AddEditElementComponent>) {
+
     this.truckForm = this._form.group({
       truckPlate:'',
       semitrailerPlate: '',
@@ -40,12 +42,20 @@ export class AddEditElementComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get newVehiclePayload(): Vehicle {
+    return {
+      ...this.truckForm.value,
+      // id: uuid()
+    }
+  }
+
   onFormSubmit() {
     if (this.truckForm.valid) {
-      this._vehicleService.addVehicle(this.truckForm.value).subscribe({
+      this._vehicleService.addVehicle(this.newVehiclePayload).subscribe({
         next: (value: any) => {
-          alert('vehicle added succesfuly');
+          alert('vehicle added successfully');
           this._dialogRef.close(true);
+          // refresh the list
         },
         error: (err: any) => {
           console.log(err);
