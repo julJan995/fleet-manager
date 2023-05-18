@@ -40,34 +40,22 @@
       "driversName": "test",
       "driversSurname": "testtest",
       "id": 8
-    },
-    {
-      "truckPlate": "",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 9
     }
   ],
   "drivers": [
     {
+      "id": 1,
       "name": "Adam",
       "surname": "Kowalski",
       "phoneNumber": "+48 111-222-333",
-      "email": "adam.kowalski@gmail.com",
-      "id": 1
+      "email": "adam.kowalski@gmail.com"
     },
     {
+      "id": 2,
       "name": "Piotr",
       "surname": "Nowak",
       "phoneNumber": "+48 222-555-777",
-      "email": "piotr.nowak@gmail.com",
-      "id": 2
+      "email": "piotr.nowak@gmail.com"
     }
   ]
 }

@@ -19,10 +19,11 @@ export interface Semitrailer {
 }
 
 export interface Driver {
-  id: string;
+  id: number;
   name: string;
   surname: string;
   phoneNumber: string;
+  email: string
 }
 
 export interface SemitrailerVehicleSet {

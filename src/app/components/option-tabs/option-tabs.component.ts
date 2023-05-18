@@ -14,7 +14,6 @@ export class OptionTabsComponent {
     'name',
     'phoneNumber',
     'email',
-    'id',
     'star'
   ];
   dataSource = ELEMENT_DATA;
@@ -34,7 +33,6 @@ export interface DriverElement {
   name: string;
   phoneNumber: string;
   email: string;
-  id: number;
 }
 
 const ELEMENT_DATA: DriverElement[] = [
@@ -42,21 +40,18 @@ const ELEMENT_DATA: DriverElement[] = [
     surname: "Kowalski",
     name: "Adam",
     phoneNumber: "+48 222-222-111",
-    email: "ak@gmail.com",
-    id: 1
+    email: "ak@gmail.com"
   },
   {
     surname: "Kowalski",
     name: "Piotr",
     phoneNumber: "+48 222-222-111",
-    email: "ak@gmail.com",
-    id: 2
+    email: "ak@gmail.com"
   },
   {
     surname: "Test",
     name: "Test",
     phoneNumber: "+48 222-222-111",
-    email: "test@gmail.com",
-    id: 3
+    email: "test@gmail.com"
   }
 ]
