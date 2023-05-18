@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+  <h1 class="title">Driver's Form</h1>
+</div>
+
+<form [formGroup]="driverForm" (ngSubmit)="onDriverFormSubmit()">
+  <div mat-dialog-content
+      class="form-content">
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Driver's name</mat-label>
+          <input matInput type="text" placeholder="name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Driver's surname</mat-label>
+          <input matInput type="text" placeholder="surname" formControlName="surname">
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input matInput type="text" placeholder="phone" formControlName="phone">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="text" placeholder="email" formControlName="email">
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions class="save-cancel-btns">
+        <button mat-raised-button>CANCEL</button>
+        <button mat-raised-button color="primary" type="submit">SAVE</button>
+      </div>
+  </div>
+</form>

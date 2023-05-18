@@ -30,39 +30,15 @@
       "id": 5
     },
     {
-      "truckPlate": "A",
-      "semitrailerPlate": "A",
-      "semitrailerType": "flatbed",
-      "truckService": "2023-05-30T22:00:00.000Z",
-      "trailerService": "2023-07-06T22:00:00.000Z",
-      "truckInsurance": "2023-05-18T22:00:00.000Z",
-      "trailerInsurance": "2023-05-07T22:00:00.000Z",
-      "driversName": "Q",
-      "driversSurname": "Q",
-      "id": 6
-    },
-    {
-      "truckPlate": "A",
-      "semitrailerPlate": "A",
-      "semitrailerType": "",
-      "truckService": "2023-05-29T22:00:00.000Z",
-      "trailerService": "2023-09-03T22:00:00.000Z",
-      "truckInsurance": "2023-05-09T22:00:00.000Z",
-      "trailerInsurance": "2023-09-05T22:00:00.000Z",
-      "driversName": "Test",
-      "driversSurname": "Test222",
-      "id": 7
-    },
-    {
-      "truckPlate": "TEST",
-      "semitrailerPlate": "TEST",
-      "semitrailerType": "flatbed",
-      "truckService": "2023-05-30T22:00:00.000Z",
-      "trailerService": "2023-05-05T22:00:00.000Z",
-      "truckInsurance": "2023-05-04T22:00:00.000Z",
-      "trailerInsurance": "2023-05-07T22:00:00.000Z",
-      "driversName": "TEST",
-      "driversSurname": "TEST",
+      "truckPlate": "TEST1",
+      "semitrailerPlate": "TEST1",
+      "semitrailerType": "FlatBed",
+      "truckService": "2023-05-03T22:00:00.000Z",
+      "trailerService": "2023-04-30T22:00:00.000Z",
+      "truckInsurance": "2023-05-21T22:00:00.000Z",
+      "trailerInsurance": "2023-05-06T22:00:00.000Z",
+      "driversName": "test",
+      "driversSurname": "testtest",
       "id": 8
     },
     {
@@ -76,114 +52,22 @@
       "driversName": "",
       "driversSurname": "",
       "id": 9
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Adam",
+      "surname": "Kowalski",
+      "phoneNumber": "+48 111-222-333",
+      "email": "adam.kowalski@gmail.com",
+      "id": 1
     },
     {
-      "truckPlate": "",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 10
-    },
-    {
-      "truckPlate": "",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 11
-    },
-    {
-      "truckPlate": "",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 12
-    },
-    {
-      "truckPlate": "rr",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 13
-    },
-    {
-      "truckPlate": "sdfsdsd",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 14
-    },
-    {
-      "truckPlate": "sdsdsd",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 15
-    },
-    {
-      "truckPlate": "",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 16
-    },
-    {
-      "truckPlate": "A",
-      "semitrailerPlate": "S",
-      "semitrailerType": "FlatBed",
-      "truckService": "2023-05-08T22:00:00.000Z",
-      "trailerService": "2023-05-08T22:00:00.000Z",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "testtest",
-      "driversSurname": "testtest",
-      "id": 17
-    },
-    {
-      "truckPlate": "",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 18
+      "name": "Piotr",
+      "surname": "Nowak",
+      "phoneNumber": "+48 222-555-777",
+      "email": "piotr.nowak@gmail.com",
+      "id": 2
     }
   ]
 }
