@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Driver } from 'src/app/models';
-import { AddEditDriverComponent } from '../add-edit-driver/add-edit-driver.component';
+import { AddEditDriverComponent } from '../../components/mat-dialogs/add-edit-driver/add-edit-driver.component';
 
 @Component({
   selector: 'app-option-tabs',

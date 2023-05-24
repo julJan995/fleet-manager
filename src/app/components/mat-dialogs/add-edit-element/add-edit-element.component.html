@@ -77,14 +77,15 @@
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Phone number</mat-label>
-      <input matInput type="text" placeholder="+48 ">
+      <input matInput type="text" placeholder="+48 "  formControlName="phoneNumber">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email (not required)</mat-label>
-      <input matInput type="text" placeholder="E-mail">
+      <input matInput type="text" placeholder="E-mail"  formControlName="Email">
     </mat-form-field>
   </div>
 </div>
+
 <div mat-dialog-actions class="save-cancel-btns">
   <button mat-raised-button>CANCEL</button>
   <button mat-raised-button color="primary" type="submit">SAVE</button>

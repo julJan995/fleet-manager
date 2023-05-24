@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddEditElementComponent } from '../add-edit-element/add-edit-element.component';
+import { AddEditElementComponent } from '../../components/mat-dialogs/add-edit-element/add-edit-element.component';
 import { VehicleService } from '../../services/vehicle.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -23,6 +23,8 @@ export class TableContentComponent implements OnInit {
     `trailerInsurance`,
     `driversName`,
     `driversSurname`,
+    `phoneNumber`,
+    `Email`,
     `action`
   ];
   dataSource!: MatTableDataSource<any>;

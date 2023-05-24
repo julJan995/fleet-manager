@@ -17,14 +17,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { AppComponent } from './app.component';
-import { AddEditElementComponent } from './components/add-edit-element/add-edit-element.component';
+import { AddEditElementComponent } from './components/mat-dialogs/add-edit-element/add-edit-element.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ConfigPageComponent } from './components/config-page/config-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TableContentComponent } from './components/table-content/table-content.component';
 import { OptionTabsComponent } from './components/option-tabs/option-tabs.component';
-import { AddEditDriverComponent } from './components/add-edit-driver/add-edit-driver.component';
+import { AddEditDriverComponent } from './components/mat-dialogs/add-edit-driver/add-edit-driver.component';
 @NgModule({
   declarations: [
     AppComponent,

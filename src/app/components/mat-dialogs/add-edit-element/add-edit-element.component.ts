@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { SemitrailerType, Vehicle } from '../../models/vehicle';
-import { VehicleService } from '../../services/vehicle.service';
+import { SemitrailerType, Vehicle } from '../../../models/vehicle';
+import { VehicleService } from '../../../services/vehicle.service';
 
 @Component({
   selector: 'app-add-edit-element',
@@ -35,7 +35,9 @@ export class AddEditElementComponent implements OnInit {
       truckInsurance: '',
       trailerInsurance: '',
       driversName: '',
-      driversSurname: ''
+      driversSurname: '',
+      phoneNumber: '',
+      Email: ''
     })
   }
 

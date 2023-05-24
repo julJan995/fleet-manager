@@ -6,6 +6,7 @@ import { ApiService } from './api-service/api.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DriverService {
   readonly driverUrl = 'http://localhost:3000/drivers';
 
