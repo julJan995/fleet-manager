@@ -42,18 +42,6 @@
       "id": 8
     },
     {
-      "truckPlate": "",
-      "semitrailerPlate": "",
-      "semitrailerType": "",
-      "truckService": "",
-      "trailerService": "",
-      "truckInsurance": "",
-      "trailerInsurance": "",
-      "driversName": "",
-      "driversSurname": "",
-      "id": 9
-    },
-    {
       "truckPlate": "1",
       "semitrailerPlate": "1",
       "semitrailerType": "FlatBed",
@@ -115,6 +103,20 @@
       "phone": "qqqqqq",
       "email": "qqqqqqqqq",
       "id": 5
+    },
+    {
+      "name": "",
+      "surname": "",
+      "phone": "",
+      "email": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "surname": "",
+      "phone": "",
+      "email": "",
+      "id": 7
     }
   ]
 }

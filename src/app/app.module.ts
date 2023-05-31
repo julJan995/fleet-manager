@@ -25,6 +25,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TableContentComponent } from './components/table-content/table-content.component';
 import { OptionTabsComponent } from './components/option-tabs/option-tabs.component';
 import { AddEditDriverComponent } from './components/mat-dialogs/add-edit-driver/add-edit-driver.component';
+import { DriversComponent } from './components/drivers/drivers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { AddEditDriverComponent } from './components/mat-dialogs/add-edit-driver
     HeaderComponent,
     TableContentComponent,
     OptionTabsComponent,
-    AddEditDriverComponent
+    AddEditDriverComponent,
+    DriversComponent
   ],
   imports: [
     BrowserModule,
