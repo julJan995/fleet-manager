@@ -75,4 +75,7 @@ export class TableContentComponent implements OnInit {
       error: console.log,
     })
   }
+
+
+
 }

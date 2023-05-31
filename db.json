@@ -66,6 +66,20 @@
       "phoneNumber": "111222333",
       "Email": "@TEST",
       "id": 12
+    },
+    {
+      "truckPlate": "",
+      "semitrailerPlate": "",
+      "semitrailerType": "",
+      "truckService": "",
+      "trailerService": "",
+      "truckInsurance": "",
+      "trailerInsurance": "",
+      "driversName": "",
+      "driversSurname": "",
+      "phoneNumber": "",
+      "Email": "",
+      "id": 13
     }
   ],
   "drivers": [
