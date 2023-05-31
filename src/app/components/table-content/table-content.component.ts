@@ -5,6 +5,7 @@ import { VehicleService } from '../../services/vehicle.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-table-content',
@@ -33,6 +34,7 @@ export class TableContentComponent implements OnInit {
   constructor(
     private _dialog: MatDialog,
     private _vehicleService: VehicleService,
+    private _snackBarService: SnackbarService,
   ) {}
   ngOnInit(): void {
     this.getVehicleList();
@@ -70,7 +72,7 @@ export class TableContentComponent implements OnInit {
   deleteVehicle(id: number) {
     this._vehicleService.deleteVehicle(id).subscribe({
       next: (response) => {
-        alert('Vehicle deleted.');
+        this._snackBarService.openSnackBar('Vehicle deleted', 'done')
         this.getVehicleList();
       },
       error: console.log,

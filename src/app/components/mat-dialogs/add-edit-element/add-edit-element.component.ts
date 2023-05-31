@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SemitrailerType, Vehicle } from '../../../models/vehicle';
 import { VehicleService } from '../../../services/vehicle.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-add-edit-element',
@@ -24,6 +25,7 @@ export class AddEditElementComponent implements OnInit {
   constructor(
     private _form: FormBuilder,
     private _vehicleService: VehicleService,
+    private _snackBarService: SnackbarService,
     private _dialogRef: MatDialogRef<AddEditElementComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {
@@ -61,7 +63,7 @@ export class AddEditElementComponent implements OnInit {
           .updateVehicleList(this.data.id, this.truckForm.value)
           .subscribe({
             next: (val: any) => {
-              alert('Vehicle updated successfully');
+              this._snackBarService.openSnackBar('Vehicle updated successfully', 'done')
               this._dialogRef.close(true);
             },
             error: (err: any) => {
@@ -74,7 +76,7 @@ export class AddEditElementComponent implements OnInit {
           .addVehicle(this.newVehiclePayload)
           .subscribe({
             next: (value: any) => {
-              alert('vehicle added successfully');
+              this._snackBarService.openSnackBar('Vehicle added successfully', 'done')
               this._dialogRef.close(true);
               // refresh the list
             },

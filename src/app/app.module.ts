@@ -26,6 +26,7 @@ import { TableContentComponent } from './components/table-content/table-content.
 import { OptionTabsComponent } from './components/option-tabs/option-tabs.component';
 import { AddEditDriverComponent } from './components/mat-dialogs/add-edit-driver/add-edit-driver.component';
 import { DriversComponent } from './components/drivers/drivers.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { DriversComponent } from './components/drivers/drivers.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
