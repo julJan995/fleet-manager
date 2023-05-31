@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SemitrailerType, Vehicle } from '../../../models/vehicle';
 import { VehicleService } from '../../../services/vehicle.service';
 
@@ -24,7 +24,9 @@ export class AddEditElementComponent implements OnInit {
   constructor(
     private _form: FormBuilder,
     private _vehicleService: VehicleService,
-    private _dialogRef: MatDialogRef<AddEditElementComponent>) {
+    private _dialogRef: MatDialogRef<AddEditElementComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) {
 
     this.truckForm = this._form.group({
       truckPlate:'',
@@ -42,6 +44,7 @@ export class AddEditElementComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.truckForm.patchValue(this.data)
   }
 
   get newVehiclePayload(): Vehicle {
@@ -53,16 +56,33 @@ export class AddEditElementComponent implements OnInit {
 
   onFormSubmit() {
     if (this.truckForm.valid) {
-      this._vehicleService.addVehicle(this.newVehiclePayload).subscribe({
-        next: (value: any) => {
-          alert('vehicle added successfully');
-          this._dialogRef.close(true);
-          // refresh the list
-        },
-        error: (err: any) => {
-          console.log(err);
-        }
-      })
-    }
+      if (this.data) {
+        this._vehicleService
+          .updateVehicleList(this.data.id, this.truckForm.value)
+          .subscribe({
+            next: (val: any) => {
+              alert('Vehicle updated successfully');
+              this._dialogRef.close(true);
+            },
+            error: (err: any) => {
+              console.log(err)
+            }
+        })
+
+      } else {
+        this._vehicleService
+          .addVehicle(this.newVehiclePayload)
+          .subscribe({
+            next: (value: any) => {
+              alert('vehicle added successfully');
+              this._dialogRef.close(true);
+              // refresh the list
+            },
+            error: (err: any) => {
+              console.log(err);
+            },
+        });
+      }
+   }
   }
 }

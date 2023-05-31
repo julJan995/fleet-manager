@@ -17,6 +17,10 @@ export class VehicleService {
     return this.apiService.post(this.vehicleUrl, data);
   }
 
+  updateVehicleList(id: number, data: any) {
+    return this.apiService.update(`${this.vehicleUrl}/${id}`, data)
+  }
+
   getVehicleList(): Observable<Vehicle[]> {
     return this.apiService.get(this.vehicleUrl);
   }

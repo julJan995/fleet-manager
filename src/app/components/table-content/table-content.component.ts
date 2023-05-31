@@ -32,10 +32,11 @@ export class TableContentComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   constructor(
     private _dialog: MatDialog,
-    private _vehicleService: VehicleService
+    private _vehicleService: VehicleService,
   ) {}
   ngOnInit(): void {
     this.getVehicleList();
+
   }
   openAddEditElementForm() {
     const dialogRef = this._dialog.open(AddEditElementComponent);
@@ -76,6 +77,18 @@ export class TableContentComponent implements OnInit {
     })
   }
 
+  openEditForm(data: any) {
+    const dialogRef = this._dialog.open(AddEditElementComponent, {
+      data,
+    })
+    dialogRef.afterClosed().subscribe({
+      next: (value) => {
+        if (value) {
+          this.getVehicleList();
+        }
+      }
+    })
+  }
 
 
 }

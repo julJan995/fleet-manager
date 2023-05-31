@@ -18,8 +18,8 @@
   },
   "vehicles": [
     {
-      "truckPlate": "Next",
-      "semitrailerPlate": "Test",
+      "truckPlate": "updated/",
+      "semitrailerPlate": "updated valuee",
       "semitrailerType": "dump",
       "truckService": "2023-05-22T22:00:00.000Z",
       "trailerService": "2023-05-14T22:00:00.000Z",
@@ -27,10 +27,12 @@
       "trailerInsurance": "2023-03-12T23:00:00.000Z",
       "driversName": "Test1",
       "driversSurname": "Test2",
+      "phoneNumber": "",
+      "Email": "",
       "id": 5
     },
     {
-      "truckPlate": "TEST1",
+      "truckPlate": "updated value",
       "semitrailerPlate": "TEST1",
       "semitrailerType": "FlatBed",
       "truckService": "2023-05-03T22:00:00.000Z",
@@ -39,6 +41,8 @@
       "trailerInsurance": "2023-05-06T22:00:00.000Z",
       "driversName": "test",
       "driversSurname": "testtest",
+      "phoneNumber": "",
+      "Email": "",
       "id": 8
     },
     {
@@ -80,6 +84,34 @@
       "phoneNumber": "",
       "Email": "",
       "id": 13
+    },
+    {
+      "truckPlate": "changed",
+      "semitrailerPlate": "changed",
+      "semitrailerType": "dump",
+      "truckService": "2023-05-22T22:00:00.000Z",
+      "trailerService": "2023-05-14T22:00:00.000Z",
+      "truckInsurance": "2023-05-20T22:00:00.000Z",
+      "trailerInsurance": "2023-03-12T23:00:00.000Z",
+      "driversName": "Test1",
+      "driversSurname": "Test2",
+      "phoneNumber": "",
+      "Email": "",
+      "id": 14
+    },
+    {
+      "truckPlate": "Next",
+      "semitrailerPlate": "Test",
+      "semitrailerType": "dump",
+      "truckService": "2023-05-22T22:00:00.000Z",
+      "trailerService": "2023-05-14T22:00:00.000Z",
+      "truckInsurance": "2023-05-20T22:00:00.000Z",
+      "trailerInsurance": "2023-03-12T23:00:00.000Z",
+      "driversName": "Test1",
+      "driversSurname": "Test2",
+      "phoneNumber": "",
+      "Email": "",
+      "id": 15
     }
   ],
   "drivers": [

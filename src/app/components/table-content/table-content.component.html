@@ -92,7 +92,7 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
       <td mat-cell *matCellDef="let row">
         <div class="edit-delete-btns">
-          <button mat-icon-button>
+          <button mat-icon-button (click)="openEditForm(row)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button (click)="deleteVehicle(row.id)">

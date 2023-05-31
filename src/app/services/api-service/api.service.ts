@@ -12,6 +12,10 @@ export class ApiService {
     return this._http.post(url, data);
   }
 
+  update(url: string, data: any): Observable<any> {
+    return this._http.put(url, data);
+  }
+
   get(url: string): Observable<any> {
     return this._http.get(url);
   }
