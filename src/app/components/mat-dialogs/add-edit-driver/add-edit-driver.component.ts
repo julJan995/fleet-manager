@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DriverService } from '../../../services/driver.service';
 import { Driver } from '../../../models';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 @Component({
   selector: 'app-add-edit-driver',
   templateUrl: './add-edit-driver.component.html',
@@ -19,7 +20,9 @@ export class AddEditDriverComponent implements OnInit{
   constructor(
     private _form: FormBuilder,
     private _dialogRef: MatDialogRef<AddEditDriverComponent>,
-    private _driverService: DriverService
+    private _driverService: DriverService,
+    private _snackBarService: SnackbarService,
+    @Inject(MAT_DIALOG_DATA) public data: any
 
   ) {
     this.driverForm = this._form.group({
@@ -30,43 +33,11 @@ export class AddEditDriverComponent implements OnInit{
     })
   }
 
-  readonly driverUrl = 'http://localhost:3000/drivers';
-  readonly data = {};
-  dataSource!: MatTableDataSource<any>;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-/*
-  addDriver() {
-    this.apiService.post(this.driverUrl, this.data).subscribe(
-      response => {
 
-      },
-      error => {
-
-      }
-    )
+  ngOnInit(): void {
+    this.driverForm.patchValue(this.data);
   }
-  getDriver() {
-    this.apiService.get(this.driverUrl).subscribe(
-      response => {
 
-      },
-      error => {
-
-      }
-    )
-  }
-  deleteDriver(id: number) {
-    this.apiService.delete(`${this.driverUrl}/${id}`).subscribe(
-      response => {
-
-      },
-      error => {
-
-      }
-    )
-  }
-  */
   get newDriverPayload(): Driver {
     return {
       ...this.driverForm.value,
@@ -74,34 +45,33 @@ export class AddEditDriverComponent implements OnInit{
     }
   }
 
-  ngOnInit(): void {
-    this.getDriversList()
-  }
-
   onDriverFormSubmit() {
     if (this.driverForm.valid) {
-      this._driverService.addDriver(this.newDriverPayload).subscribe({
-        next: (value: any) => {
-          alert('driver added');
-          this._dialogRef.close(true);
+      if (this.data) {
+        this._driverService
+          .updateDriversList(this.data.id, this.driverForm.value)
+          .subscribe({
+            next: (value: any) => {
+              this._snackBarService.openSnackBar('Driver updated successfully', 'done')
+              this._dialogRef.close(true);
+            },
+            error: (err) => {
+              console.log(err);
+            }
+          })
+        } else {
+          this._driverService
+            .addDriver(this.newDriverPayload)
+            .subscribe({
+              next: (value: any) => {
+                this._snackBarService.openSnackBar('Driver added successfully', 'done')
+                this._dialogRef.close(true)
         },
-        error: (err: any) => {
-          console.log(err);
+          error: (err: any) => {
+            console.log(err);
         }
       })
     }
   }
-
-  getDriversList() {
-    this._driverService.getDriversList().subscribe({
-      next: (response) => {
-        this.dataSource = new MatTableDataSource(response);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-      },
-      error: (err) => {
-        console.log('error occured', err);
-      }
-    })
-  }
+}
 }

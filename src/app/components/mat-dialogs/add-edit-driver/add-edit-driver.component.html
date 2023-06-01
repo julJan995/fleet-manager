@@ -8,26 +8,26 @@
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Driver's name</mat-label>
-          <input matInput type="text" placeholder="name" formControlName="name">
+          <input matInput type="text" placeholder="name" formControlName="name"  pattern="[A-Za-z]+">
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Driver's surname</mat-label>
-          <input matInput type="text" placeholder="surname" formControlName="surname">
+          <input matInput type="text" placeholder="surname" formControlName="surname"  pattern="[A-Za-z]+">
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Phone number</mat-label>
-          <input matInput type="text" placeholder="phone" formControlName="phone">
+          <input matInput type="text" pattern="[0-9]+" placeholder="+48 " formControlName="phone">
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>E-mail</mat-label>
-          <input matInput type="text" placeholder="email" formControlName="email">
+          <mat-label>E-mail (not required)</mat-label>
+          <input matInput type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="email" formControlName="email">
         </mat-form-field>
       </div>
       <div mat-dialog-actions class="save-cancel-btns">
-        <button mat-raised-button>CANCEL</button>
-        <button mat-raised-button color="primary" type="submit">SAVE</button>
+        <button mat-raised-button type="button" mat-dialog-close>CANCEL</button>
+        <button mat-raised-button color="primary" type="submit">{{ data ? "UPDATE" : "SAVE" }} </button>
       </div>
   </div>
 </form>

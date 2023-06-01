@@ -69,6 +69,28 @@ export class DriversComponent implements OnInit {
       error: console.log,
     })
   }
+
+  openEditForm(data: any) {
+    const dialogRef = this._dialog.open(AddEditDriverComponent, {
+      data,
+    })
+    dialogRef.afterClosed().subscribe({
+      next: (value) => {
+        if (value) {
+          this.getDriversList();
+        }
+      }
+    })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
 }
 
 export interface DriverElement {

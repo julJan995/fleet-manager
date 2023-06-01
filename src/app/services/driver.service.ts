@@ -16,6 +16,10 @@ export class DriverService {
     return this.apiService.post(this.driverUrl, data);
   }
 
+  updateDriversList(id: number, data: any) {
+    return this.apiService.update(`${this.driverUrl}/${id}`, data)
+  }
+
   getDriversList(): Observable<Driver[]> {
     return this.apiService.get(this.driverUrl);
   }
