@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Driver } from 'src/app/models';
+import { DriverService } from 'src/app/services/driver.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { AddEditDriverComponent } from '../../components/mat-dialogs/add-edit-driver/add-edit-driver.component';
 
 @Component({
@@ -8,21 +13,51 @@ import { AddEditDriverComponent } from '../../components/mat-dialogs/add-edit-dr
   templateUrl: './drivers.component.html',
   styleUrls: ['./drivers.component.scss']
 })
-export class DriversComponent {
+export class DriversComponent implements OnInit {
   displayedColumns = [
     'surname',
     'name',
-    'phoneNumber',
+    'phone',
     'email',
-    'star'
+    'action'
   ];
-  dataSource = ELEMENT_DATA;
+
+  dataSource!: MatTableDataSource<any>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _driverService: DriverService,
+    private _snackBarService: SnackbarService
   ) {}
+
+  ngOnInit(): void {
+    this.getDriversList();
+  }
+
   openAddDriverForm () {
-    const dialogRef = this._dialog.open(AddEditDriverComponent)
+    const dialogRef = this._dialog.open(AddEditDriverComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (value) => {
+        if (value) {
+          this.getDriversList();
+        }
+      }
+    })
+  }
+
+  getDriversList() {
+    this._driverService.getDriversList().subscribe({
+      next: (response) => {
+        this.dataSource = new MatTableDataSource(response);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      },
+      error: (error) => {
+        console.log('error occured', error);
+      }
+    })
   }
 }
 
@@ -33,25 +68,5 @@ export interface DriverElement {
   email: string;
 }
 
-const ELEMENT_DATA: DriverElement[] = [
-  {
-    surname: "Kowalski",
-    name: "Adam",
-    phoneNumber: "+48 222-222-111",
-    email: "ak@gmail.com"
-  },
-  {
-    surname: "Kowalski",
-    name: "Piotr",
-    phoneNumber: "+48 222-222-111",
-    email: "ak@gmail.com"
-  },
-  {
-    surname: "Test",
-    name: "Test",
-    phoneNumber: "+48 222-222-111",
-    email: "test@gmail.com"
-  }
-]
 
 
