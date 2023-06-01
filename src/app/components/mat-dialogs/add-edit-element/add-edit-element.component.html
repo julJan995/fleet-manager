@@ -8,11 +8,11 @@
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Truck's plate</mat-label>
-      <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="truckPlate">
+      <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="truckPlate" minlength="5" maxlength="7" style="text-transform: uppercase;">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Semitrailer's plate</mat-label>
-      <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="semitrailerPlate">
+      <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="semitrailerPlate" minlength="5" maxlength="7" style="text-transform: uppercase;">
     </mat-form-field>
   </div>
 
@@ -66,22 +66,22 @@
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Driver's name</mat-label>
-      <input matInput type="text" placeholder="Name" formControlName="driversName">
+      <input matInput type="text" pattern="[A-Za-z]+" placeholder="Name" formControlName="driversName">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Driver's surname</mat-label>
-      <input matInput type="text" placeholder="Surname" formControlName="driversSurname">
+      <input matInput type="text" pattern="[A-Za-z]+" placeholder="Surname" formControlName="driversSurname">
     </mat-form-field>
   </div>
 
   <div class="row">
     <mat-form-field appearance="outline">
       <mat-label>Phone number</mat-label>
-      <input matInput type="text" placeholder="+48 "  formControlName="phoneNumber">
+      <input matInput type="text" pattern="[0-9]+" placeholder="+48 "  formControlName="phoneNumber">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email (not required)</mat-label>
-      <input matInput type="text" placeholder="E-mail"  formControlName="Email">
+      <input matInput type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="E-mail"  formControlName="Email">
     </mat-form-field>
   </div>
 </div>
