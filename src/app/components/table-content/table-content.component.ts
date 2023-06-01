@@ -36,6 +36,7 @@ export class TableContentComponent implements OnInit {
     private _vehicleService: VehicleService,
     private _snackBarService: SnackbarService,
   ) {}
+
   ngOnInit(): void {
     this.getVehicleList();
 

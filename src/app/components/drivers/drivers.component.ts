@@ -59,6 +59,16 @@ export class DriversComponent implements OnInit {
       }
     })
   }
+
+  deleteDriver(id: number) {
+    this._driverService.deleteDriver(id).subscribe({
+      next: (response) => {
+        this._snackBarService.openSnackBar('Driver deleted', 'done')
+        this.getDriversList();
+      },
+      error: console.log,
+    })
+  }
 }
 
 export interface DriverElement {
