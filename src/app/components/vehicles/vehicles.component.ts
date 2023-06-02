@@ -31,7 +31,7 @@ export class VehiclesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
+    this.getVehiclesList();
   }
 
   openAddVehicleForm() {

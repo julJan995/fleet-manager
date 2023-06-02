@@ -6,7 +6,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-
 @Component({
   selector: 'app-table-content',
   templateUrl: './table-content.component.html',
@@ -92,6 +91,5 @@ export class TableContentComponent implements OnInit {
       }
     })
   }
-
 
 }
