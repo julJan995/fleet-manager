@@ -1,9 +1,8 @@
 export interface Vehicle {
   id: string; // uuid() / uuidv4()
-  plate: string;
-  nextService: string;
-  insurance: string;
-  name: string;
+  truckPlate: string;
+  truckService: string;
+  truckInsurance: string;
 }
 
 export enum SemitrailerType {

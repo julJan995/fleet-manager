@@ -1,0 +1,34 @@
+<div mat-dialog-title>
+  <h1 class="title">Vehicle's Form</h1>
+</div>
+
+<form
+  [formGroup]="vehicleForm" (ngSubmit)="onVehicleFormSubmit()">
+  <div mat-dialog-content
+      class="form-content">
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Truck's plate</mat-label>
+          <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="truckPlate" minlength="5" maxlength="7" style="text-transform: uppercase;">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Truck's servicing validity</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="truckService">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Truck's insurance validity</mat-label>
+          <input matInput [matDatepicker]="picker3" formControlName="truckInsurance">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions class="save-cancel-btns">
+        <button mat-raised-button type="button" mat-dialog-close>CANCEL</button>
+        <button mat-raised-button color="primary" type="submit">{{ data ? "UPDATE" : "SAVE" }} </button>
+      </div>
+  </div>
+</form>

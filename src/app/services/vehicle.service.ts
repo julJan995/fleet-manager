@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from './api-service/api.service';
+import { Vehicle } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class VehicleService {
 
   readonly vehicleUrl = 'http://localhost:3000/vehicles'
 
-  addVehicle(data: any): Observable<any> {
+  addVehicle(data: Vehicle): Observable<Vehicle> {
     return this.apiService.post(this.vehicleUrl, data);
   }
 
@@ -19,7 +20,7 @@ export class VehicleService {
     return this.apiService.update(`${this.vehicleUrl}/${id}`, data)
   }
 
-  getVehiclesList(): Observable<any[]> {
+  getVehiclesList(): Observable<Vehicle[]> {
     return this.apiService.get(this.vehicleUrl);
   }
 
