@@ -1,13 +1,10 @@
 <div class="example-large-box">
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <!-- TO COMPLETE
     <input matInput (keyup)="applyFilter($event)"#input>
-    -->
   </mat-form-field>
   <section class="example-container mat-elevation-z8" tabindex="0">
-    <table mat-table>
-    <!-- TO COMPLETE [dataSource]="dataSource" later above -->
+    <table mat-table [dataSource]="dataSource">
       <!-- Truck's plate Column -->
       <ng-container matColumnDef="truckPlate" sticky>
         <th mat-header-cell *matHeaderCellDef> Truck's plate </th>
@@ -16,28 +13,25 @@
       <!-- Truck's servicing validity Column -->
       <ng-container matColumnDef="truckService">
         <th mat-header-cell *matHeaderCellDef> Truck's servicing validity </th>
-        <td mat-cell *matCellDef="let element"> {{ element.truckService }} </td>
+        <td mat-cell *matCellDef="let element"> {{ element.truckService | date}} </td>
       </ng-container>
       <!-- Truck's insurance validity -->
       <ng-container matColumnDef="truckInsurance">
         <th mat-header-cell *matHeaderCellDef> Truck's insurance validity </th>
-        <td mat-cell *matCellDef="let element"> {{element.truckInsurance}} </td>
+        <td mat-cell *matCellDef="let element"> {{ element.truckInsurance | date }} </td>
       </ng-container>
       <!-- Actions Column -->
       <ng-container matColumnDef="action" stickyEnd>
         <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
         <td mat-cell *matCellDef="let element">
           <div class="edit-delete-btns">
-            <button mat-icon-button>
-              <!-- above TO COMPLETE (click)="openEditForm(element)" -->
+            <button mat-icon-button (click)="openEditForm(element)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button >
-              <!--TO COMPLETE (click)="deleteDriver(element.id)" -->
+            <button mat-icon-button (click)="deleteVehicle(element.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </div>
-          <!--<mat-icon>more_vert</mat-icon>-->
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -47,6 +41,5 @@
   </section>
 </div>
 <div class="add-driver-btn">
-<button mat-raised-button >ADD VEHICLE</button>
-<!-- TO COMPLETE above (click)="openAddDriverForm()"-->
+<button mat-raised-button (click)="openAddVehicleForm()">ADD VEHICLE</button>
 </div>
