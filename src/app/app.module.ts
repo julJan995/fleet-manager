@@ -27,6 +27,7 @@ import { OptionTabsComponent } from './components/option-tabs/option-tabs.compon
 import { AddEditDriverComponent } from './components/mat-dialogs/add-edit-driver/add-edit-driver.component';
 import { DriversComponent } from './components/drivers/drivers.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { VehiclesComponent } from './components/vehicles/vehicles.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     TableContentComponent,
     OptionTabsComponent,
     AddEditDriverComponent,
-    DriversComponent
+    DriversComponent,
+    VehiclesComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,6 @@
     </mat-form-field>
     <section class="example-container mat-elevation-z8" tabindex="0">
       <table mat-table [dataSource]="dataSource">
-      <!-- [dataSource]="dataSource" dodac tam u gory-->
         <!-- Surname Column -->
         <ng-container matColumnDef="surname" sticky>
           <th mat-header-cell *matHeaderCellDef> Surname </th>
@@ -27,7 +26,7 @@
           <th mat-header-cell *matHeaderCellDef> Email </th>
           <td mat-cell *matCellDef="let element"> {{element.email}} </td>
         </ng-container>
-        <!-- Star Column -->
+        <!-- Actions Column -->
         <ng-container matColumnDef="action" stickyEnd>
           <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
           <td mat-cell *matCellDef="let element">
@@ -36,11 +35,9 @@
                 <mat-icon>edit</mat-icon>
               </button>
               <button mat-icon-button (click)="deleteDriver(element.id)">
-                <!--(click)="deleteVehicle(row.id)"-->
                 <mat-icon>delete</mat-icon>
               </button>
             </div>
-            <!--<mat-icon>more_vert</mat-icon>-->
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
