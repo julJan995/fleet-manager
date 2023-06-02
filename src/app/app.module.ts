@@ -29,6 +29,7 @@ import { DriversComponent } from './components/drivers/drivers.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { AddEditVehicleComponent } from './components/mat-dialogs/add-edit-vehicle/add-edit-vehicle.component';
+import { SemitrailersComponent } from './components/semitrailers/semitrailers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { AddEditVehicleComponent } from './components/mat-dialogs/add-edit-vehic
     AddEditDriverComponent,
     DriversComponent,
     VehiclesComponent,
-    AddEditVehicleComponent
+    AddEditVehicleComponent,
+    SemitrailersComponent
   ],
   imports: [
     BrowserModule,
