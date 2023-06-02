@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SemitrailerType, Vehicle } from '../../../models/vehicle';
-import { VehicleService } from '../../../services/vehicle.service';
+import { AllDataService } from '../../../services/all-data.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class AddEditElementComponent implements OnInit {
 
   constructor(
     private _form: FormBuilder,
-    private _vehicleService: VehicleService,
+    private _allDataService: AllDataService,
     private _snackBarService: SnackbarService,
     private _dialogRef: MatDialogRef<AddEditElementComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -59,7 +59,7 @@ export class AddEditElementComponent implements OnInit {
   onFormSubmit() {
     if (this.truckForm.valid) {
       if (this.data) {
-        this._vehicleService
+        this._allDataService
           .updateVehicleList(this.data.id, this.truckForm.value)
           .subscribe({
             next: (val: any) => {
@@ -72,7 +72,7 @@ export class AddEditElementComponent implements OnInit {
         })
 
       } else {
-        this._vehicleService
+        this._allDataService
           .addVehicle(this.newVehiclePayload)
           .subscribe({
             next: (value: any) => {

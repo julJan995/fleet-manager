@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditElementComponent } from '../../components/mat-dialogs/add-edit-element/add-edit-element.component';
-import { VehicleService } from '../../services/vehicle.service';
+import { AllDataService } from '../../services/all-data.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -33,7 +33,7 @@ export class TableContentComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   constructor(
     private _dialog: MatDialog,
-    private _vehicleService: VehicleService,
+    private _allDataService: AllDataService,
     private _snackBarService: SnackbarService,
   ) {}
 
@@ -52,7 +52,7 @@ export class TableContentComponent implements OnInit {
     })
   }
   getVehicleList() {
-    this._vehicleService.getVehicleList().subscribe({
+    this._allDataService.getVehicleList().subscribe({
       next: (response) => {
         this.dataSource = new MatTableDataSource(response);
         this.dataSource.sort = this.sort;
@@ -71,7 +71,7 @@ export class TableContentComponent implements OnInit {
     }
   }
   deleteVehicle(id: number) {
-    this._vehicleService.deleteVehicle(id).subscribe({
+    this._allDataService.deleteVehicle(id).subscribe({
       next: (response) => {
         this._snackBarService.openSnackBar('Vehicle deleted', 'done')
         this.getVehicleList();

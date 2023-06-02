@@ -8,7 +8,7 @@ import { ApiService } from './api-service/api.service';
 @Injectable({
   providedIn: 'root'
 })
-export class VehicleService {
+export class AllDataService {
   readonly vehicleUrl = 'http://localhost:3000/vehicles';
 
   constructor(private readonly apiService: ApiService) { }
