@@ -3,7 +3,8 @@
 </div>
 
 <form
-  [formGroup]="semitrailerForm" (ngSubmit)="onSemitrailerFormSubmit()">
+  >
+  <!-- TO DO [formGroup]="semitrailerForm" (ngSubmit)="onSemitrailerFormSubmit()" -->
   <div mat-dialog-content
       class="form-content">
       <div class="row">
@@ -14,9 +15,11 @@
         <mat-form-field appearance="outline">
           <mat-label>Type of semitrailer</mat-label>
           <mat-select formControlName="semitrailerType">
-            <mat-option *ngFor="let type of trailerTypes" [value]="type">
+            <!--
+            <mat-option *ngFor="let type of semitrailerTypes" [value]="type">
               {{ type }}
             </mat-option>
+            -->
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -36,7 +39,9 @@
       </div>
       <div mat-dialog-actions class="save-cancel-btns">
         <button mat-raised-button type="button" mat-dialog-close>CANCEL</button>
-        <button mat-raised-button color="primary" type="submit">{{ data ? "UPDATE" : "SAVE" }} </button>
+        <button mat-raised-button color="primary" type="submit">
+          <!-- {{ data ? "UPDATE" : "SAVE" }} -->
+        </button>
       </div>
   </div>
 </form>
