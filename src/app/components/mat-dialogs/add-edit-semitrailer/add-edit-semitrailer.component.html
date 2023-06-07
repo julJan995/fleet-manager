@@ -1,10 +1,8 @@
 <div mat-dialog-title>
-  <h1 class="title">Vehicle's Form</h1>
+  <h1 class="title">Semitrailer's Set Form</h1>
 </div>
 
-<form
-  >
-  <!-- TO DO [formGroup]="semitrailerForm" (ngSubmit)="onSemitrailerFormSubmit()" -->
+<form [formGroup]="semitrailerForm" (ngSubmit)="onSemitrailerFormSubmit()">
   <div mat-dialog-content
       class="form-content">
       <div class="row">
@@ -12,16 +10,16 @@
           <mat-label>Semitrailer's plate</mat-label>
           <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="truckPlate" minlength="5" maxlength="7" style="text-transform: uppercase;">
         </mat-form-field>
+
         <mat-form-field appearance="outline">
           <mat-label>Type of semitrailer</mat-label>
           <mat-select formControlName="semitrailerType">
-            <!--
             <mat-option *ngFor="let type of semitrailerTypes" [value]="type">
               {{ type }}
             </mat-option>
-            -->
           </mat-select>
         </mat-form-field>
+
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's servicing validity</mat-label>
           <input matInput [matDatepicker]="picker1" formControlName="truckService">
@@ -29,6 +27,7 @@
           <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
+
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's insurance validity</mat-label>
           <input matInput [matDatepicker]="picker3" formControlName="truckInsurance">
@@ -40,7 +39,7 @@
       <div mat-dialog-actions class="save-cancel-btns">
         <button mat-raised-button type="button" mat-dialog-close>CANCEL</button>
         <button mat-raised-button color="primary" type="submit">
-          <!-- {{ data ? "UPDATE" : "SAVE" }} -->
+          {{ data ? "UPDATE" : "SAVE" }}
         </button>
       </div>
   </div>
