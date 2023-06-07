@@ -31,7 +31,7 @@ export class AddEditElementComponent implements OnInit {
     ) {
 
     this.truckForm = this._form.group({
-      truckPlate:'',
+      truckPlate: '',
       semitrailerPlate: '',
       semitrailerType: '',
       truckService: '',

@@ -4,7 +4,7 @@
     <input matInput (keyup)="applyFilter($event)"#input>
   </mat-form-field>
   <section class="example-container mat-elevation-z8" tabindex="0">
-    <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource" matSort>
       <!-- Semitrailer's plate Column -->
       <ng-container matColumnDef="semitrailerPlate" sticky>
         <th mat-header-cell *matHeaderCellDef> Semitrailer's plate </th>
@@ -46,6 +46,6 @@
   </section>
 </div>
 <div class="add-driver-btn">
-<button mat-raised-button (click)="openAddSemitrailerForm()">ADD VEHICLE</button>
+<button mat-raised-button (click)="openAddSemitrailerForm()">ADD SEMITRAILER</button>
 </div>
 

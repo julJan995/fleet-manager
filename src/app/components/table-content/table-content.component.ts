@@ -30,6 +30,7 @@ export class TableContentComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
   constructor(
     private _dialog: MatDialog,
     private _allDataService: AllDataService,
@@ -40,6 +41,7 @@ export class TableContentComponent implements OnInit {
     this.getVehicleList();
 
   }
+
   openAddEditElementForm() {
     const dialogRef = this._dialog.open(AddEditElementComponent);
     dialogRef.afterClosed().subscribe({
@@ -50,6 +52,7 @@ export class TableContentComponent implements OnInit {
       }
     })
   }
+
   getVehicleList() {
     this._allDataService.getVehicleList().subscribe({
       next: (response) => {
@@ -62,6 +65,7 @@ export class TableContentComponent implements OnInit {
       }
     })
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -5,7 +5,7 @@
       <input matInput (keyup)="applyFilter($event)"#input>
     </mat-form-field>
     <section class="example-container mat-elevation-z8" tabindex="0">
-      <table mat-table [dataSource]="dataSource">
+      <table mat-table [dataSource]="dataSource" matSort>
         <!-- Surname Column -->
         <ng-container matColumnDef="surname" sticky>
           <th mat-header-cell *matHeaderCellDef> Surname </th>

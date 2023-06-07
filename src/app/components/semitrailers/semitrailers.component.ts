@@ -13,7 +13,7 @@ import { AddEditSemitrailerComponent } from '../mat-dialogs/add-edit-semitrailer
   styleUrls: ['./semitrailers.component.scss']
 })
 export class SemitrailersComponent implements OnInit {
-  displayedColumns = [
+  displayedColumns: string[] = [
     'semitrailerPlate',
     'semitrailerType',
     'semitrailerService',
