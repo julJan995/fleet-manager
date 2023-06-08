@@ -1,53 +1,29 @@
-.option-tabs {
-  max-width: 1248px;
-  margin: 0 auto;
-}
-.example-small-box, .example-large-box {
+.example-large-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 16px;
+  padding: 10px;
 }
-/*
-.example-large-box {
-  margin: 20px auto;
-  height: 600px;
-  width: 400px;
+.filter-tab {
+  min-width: 1000px;
+  margin: auto;
 }
-*/
 
 .example-container {
-  //height: 400px;
-  //width: 550px;
-  max-width: 100%;
+  margin: 0 auto;
   overflow: auto;
   border-radius: 10px;
 }
 
 table {
-  width: 800px;
+  min-width: 800px;
 }
 
-td.mat-column-star {
-  width: 20px;
-  padding-right: 8px;
-}
-
-th.mat-column-position, td.mat-column-position {
-  padding-left: 8px;
-}
-
-.mat-mdc-table-sticky-border-elem-right {
-  border-left: 1px solid #e0e0e0;
-}
-
-.mat-mdc-table-sticky-border-elem-left {
-  border-right: 1px solid #e0e0e0;
-}
-.add-driver-btn {
+.add-element-btn {
   display: flex;
   justify-content: center;
   margin-left: 500px;
+  padding: 10px;
 }
 .edit-delete-btns {
   display: flex;

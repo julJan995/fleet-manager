@@ -1,5 +1,5 @@
 <div class="example-large-box">
-  <mat-form-field>
+  <mat-form-field class="filter-tab">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)"#input>
   </mat-form-field>
@@ -40,6 +40,6 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </section>
 </div>
-<div class="add-driver-btn">
+<div class="add-element-btn">
 <button mat-raised-button (click)="openAddVehicleForm()">ADD VEHICLE</button>
 </div>
