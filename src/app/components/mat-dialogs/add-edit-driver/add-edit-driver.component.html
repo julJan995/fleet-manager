@@ -3,17 +3,17 @@
   <h1 class="title">Driver's Form</h1>
 </div>
 
-<form [formGroup]="driverForm" (ngSubmit)="onDriverFormSubmit()">
+<form [formGroup]="driverForm" (ngSubmit)="onDriverFormSubmit()"  accept-charset="UTF-8">
   <div mat-dialog-content
       class="form-content">
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Driver's name</mat-label>
-          <input matInput type="text" placeholder="Name" formControlName="name"  pattern="[A-Za-z]+" required>
+          <input matInput type="text" placeholder="Name" formControlName="name"  pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s]*" required>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Driver's surname</mat-label>
-          <input matInput type="text" placeholder="Surname" formControlName="surname"  pattern="[A-Za-z]+" required>
+          <input matInput type="text" placeholder="Surname" formControlName="surname"  pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s]*" required>
         </mat-form-field>
       </div>
       <div class="row">
