@@ -1,31 +1,5 @@
-.example-large-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 10px;
-}
-.filter-tab {
-  min-width: 1000px;
-  margin: auto;
-}
+@import './../../../styles/shared-styles.scss';
 
-.example-container {
-  margin: 0 auto;
-  overflow: auto;
-  border-radius: 10px;
-}
-
-table {
-  min-width: 800px;
-}
-
-.add-element-btn {
-  display: flex;
-  justify-content: center;
-  margin-left: 500px;
-  padding: 10px;
-}
-.edit-delete-btns {
-  display: flex;
-  flex-direction: row;
+.app-drivers {
+  @extend .shared-styles;
 }
