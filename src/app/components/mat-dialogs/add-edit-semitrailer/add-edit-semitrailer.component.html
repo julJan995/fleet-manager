@@ -8,7 +8,7 @@
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's plate</mat-label>
-          <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="truckPlate" minlength="5" maxlength="7" style="text-transform: uppercase;">
+          <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="semitrailerPlate" minlength="5" maxlength="7" style="text-transform: uppercase;">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -22,7 +22,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's servicing validity</mat-label>
-          <input matInput [matDatepicker]="picker1" formControlName="truckService">
+          <input matInput [matDatepicker]="picker1" formControlName="semitrailerService">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
@@ -30,7 +30,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's insurance validity</mat-label>
-          <input matInput [matDatepicker]="picker3" formControlName="truckInsurance">
+          <input matInput [matDatepicker]="picker3" formControlName="semitrailerInsurance">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
           <mat-datepicker #picker3></mat-datepicker>
