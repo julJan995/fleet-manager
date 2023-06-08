@@ -1,3 +1,4 @@
+<div class="app-add-edit-driver">
 <div mat-dialog-title>
   <h1 class="title">Driver's Form</h1>
 </div>
@@ -8,21 +9,21 @@
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Driver's name</mat-label>
-          <input matInput type="text" placeholder="name" formControlName="name"  pattern="[A-Za-z]+">
+          <input matInput type="text" placeholder="Name" formControlName="name"  pattern="[A-Za-z]+" required>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Driver's surname</mat-label>
-          <input matInput type="text" placeholder="surname" formControlName="surname"  pattern="[A-Za-z]+">
+          <input matInput type="text" placeholder="Surname" formControlName="surname"  pattern="[A-Za-z]+" required>
         </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Phone number</mat-label>
-          <input matInput type="text" pattern="[0-9]+" placeholder="+48 " formControlName="phone">
+          <input matInput type="text" pattern="[0-9]+" placeholder="+48 " formControlName="phone" required>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>E-mail (not required)</mat-label>
-          <input matInput type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="email" formControlName="email">
+          <input matInput type="text" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" placeholder="E-mail" formControlName="email">
         </mat-form-field>
       </div>
       <div mat-dialog-actions class="save-cancel-btns">
@@ -31,3 +32,4 @@
       </div>
   </div>
 </form>
+</div>

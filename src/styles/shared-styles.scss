@@ -32,3 +32,26 @@
     flex-direction: row;
   }
 }
+
+//shared styles for mat-dialogs
+.mat-dialogs-shared-styles {
+  .row {
+    display: flex;
+    gap: 10px;
+  }
+  .form-content {
+    padding-top: 10px;
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  .title {
+    padding-top: 20px;
+    padding-left: 25px;
+  }
+  .save-cancel-btns {
+    padding-left: 300px;
+    padding-bottom: 20px;
+  }
+
+}

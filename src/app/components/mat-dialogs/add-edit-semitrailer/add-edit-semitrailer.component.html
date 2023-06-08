@@ -1,3 +1,4 @@
+<div class="app-add-edit-semitrailer">
 <div mat-dialog-title>
   <h1 class="title">Semitrailer's Set Form</h1>
 </div>
@@ -8,7 +9,7 @@
       <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's plate</mat-label>
-          <input matInput type="text" placeholder="Ex. CBY20U9" formControlName="semitrailerPlate" minlength="5" maxlength="7" style="text-transform: uppercase;">
+          <input matInput type="text" placeholder="" formControlName="semitrailerPlate" minlength="5" maxlength="7" style="text-transform: uppercase;" required>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -19,10 +20,11 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-
+      </div>
+      <div class="row">
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's servicing validity</mat-label>
-          <input matInput [matDatepicker]="picker1" formControlName="semitrailerService">
+          <input matInput [matDatepicker]="picker1" formControlName="semitrailerService" required>
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
@@ -30,7 +32,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Semitrailer's insurance validity</mat-label>
-          <input matInput [matDatepicker]="picker3" formControlName="semitrailerInsurance">
+          <input matInput [matDatepicker]="picker3" formControlName="semitrailerInsurance" required>
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
           <mat-datepicker #picker3></mat-datepicker>
@@ -44,3 +46,4 @@
       </div>
   </div>
 </form>
+</div>

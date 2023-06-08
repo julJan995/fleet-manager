@@ -1,18 +1,6 @@
-.row {
-  display: flex;
-  gap: 10px;
+@import './../../../../styles/shared-styles.scss';
+
+.app-add-edit-driver {
+  @extend .mat-dialogs-shared-styles;
 }
-.form-content {
-  padding-top: 10px;
-  mat-form-field {
-    width: 100%;
-  }
-}
-.title {
-  padding-top: 20px;
-  padding-left: 25px;
-}
-.save-cancel-btns {
-  padding-left: 300px;
-  padding-bottom: 20px;
-}
+
