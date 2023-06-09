@@ -26,7 +26,8 @@ export class AddEditDriverComponent implements OnInit{
       name: '',
       surname: '',
       phone: '',
-      email: ''
+      email: '',
+      id: ''
     })
   }
 
@@ -38,7 +39,7 @@ export class AddEditDriverComponent implements OnInit{
   get newDriverPayload(): Driver {
     return {
       ...this.driverForm.value,
-      // id?
+      id: crypto.randomUUID()
     }
   }
 

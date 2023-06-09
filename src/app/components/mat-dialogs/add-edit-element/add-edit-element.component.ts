@@ -41,7 +41,8 @@ export class AddEditElementComponent implements OnInit {
       driversName: '',
       driversSurname: '',
       phoneNumber: '',
-      Email: ''
+      Email: '',
+      id: ''
     })
   }
 
@@ -52,7 +53,7 @@ export class AddEditElementComponent implements OnInit {
   get newVehiclePayload(): Vehicle {
     return {
       ...this.truckForm.value,
-      // id: uuid()
+      id: crypto.randomUUID()
     }
   }
 

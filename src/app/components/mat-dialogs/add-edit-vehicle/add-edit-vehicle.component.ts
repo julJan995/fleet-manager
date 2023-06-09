@@ -23,7 +23,8 @@ export class AddEditVehicleComponent implements OnInit {
     this.vehicleForm = this._form.group({
       truckPlate: '',
       truckService: '',
-      truckInsurance: ''
+      truckInsurance: '',
+      id: ''
     })
   }
   ngOnInit(): void {
@@ -32,7 +33,8 @@ export class AddEditVehicleComponent implements OnInit {
 
   get newVehiclePayload(): Vehicle {
     return {
-      ...this.vehicleForm.value
+      ...this.vehicleForm.value,
+      id: crypto.randomUUID()
     }
   }
 

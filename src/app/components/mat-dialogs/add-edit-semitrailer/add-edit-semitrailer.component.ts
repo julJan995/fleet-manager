@@ -33,7 +33,8 @@ export class AddEditSemitrailerComponent implements OnInit {
       semitrailerPlate: '',
       semitrailerType: '',
       semitrailerService: '',
-      semitrailerInsurance: ''
+      semitrailerInsurance: '',
+      id: ''
     })
 
   }
@@ -45,6 +46,7 @@ export class AddEditSemitrailerComponent implements OnInit {
   get newSemitrailerPayload(): Semitrailer {
     return {
       ...this.semitrailerForm.value,
+      id: crypto.randomUUID()
     }
   }
 
