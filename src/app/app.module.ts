@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { AddEditElementComponent } from './components/mat-dialogs/add-edit-element/add-edit-element.component';
@@ -31,6 +34,8 @@ import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { AddEditVehicleComponent } from './components/mat-dialogs/add-edit-vehicle/add-edit-vehicle.component';
 import { SemitrailersComponent } from './components/semitrailers/semitrailers.component';
 import { AddEditSemitrailerComponent } from './components/mat-dialogs/add-edit-semitrailer/add-edit-semitrailer.component';
+import { MenuComponent } from './components/menu/menu.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +49,8 @@ import { AddEditSemitrailerComponent } from './components/mat-dialogs/add-edit-s
     VehiclesComponent,
     AddEditVehicleComponent,
     SemitrailersComponent,
-    AddEditSemitrailerComponent
+    AddEditSemitrailerComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +72,9 @@ import { AddEditSemitrailerComponent } from './components/mat-dialogs/add-edit-s
     MatSortModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatMenuModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
