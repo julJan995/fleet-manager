@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { CarBannerComponent } from '../../shared/components/car-banner/car-banner.component';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    CarBannerComponent
   ],
 })
 export class RegisterComponent {
