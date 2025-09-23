@@ -1,0 +1,43 @@
+.dashboard_login {
+  display: flex;
+  width: 70%;
+  margin: 20px auto;
+  gap: 20px;
+
+  .banner_card {
+    width: 40%;
+    padding: 60px;
+
+    mat-card-title,
+    mat-card-subtitle {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    mat-card-title {
+      font-size: 2rem;
+    }
+
+    mat-card-subtitle {
+      font-size: 1.2rem;
+      margin-top: 50px;
+    }
+  }
+
+  .login-form_card {
+    h1 {
+      font-weight: lighter;
+      font-size: 2rem;
+    }
+
+    width: 60%;
+    padding: 40px;
+
+    .form-element {
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+  }
+}
