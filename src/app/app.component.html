@@ -6,6 +6,7 @@
 }
 
 @if (authService.currentUserSig()) {
+  <div>{{ `Hello ${authService.currentUserSig()?.username}!` }}</div>
   <div>
     <span (click)="logout()">Logout</span>
   </div>
