@@ -1,34 +1,3 @@
-@if (authService.currentUserSig() === null) {
-  <div class="login-logout-register-btns">
-    <button
-      mat-raised-button
-      color="primary"
-      routerLink="/login"
-    >
-      Login
-    </button>
-
-    <button
-      mat-raised-button
-      color="primary"
-      routerLink="/register"
-    >
-      Register
-    </button>
-  </div>
-}
-
-@if (authService.currentUserSig()) {
-<!--  <div>{{ `Hello ${authService.currentUserSig()?.username}!` }}</div>-->
-  <div class="login-logout-register-btns">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="logout()"
-    >
-      Logout
-    </button>
-  </div>
-}
+<app-header></app-header>
 
 <router-outlet></router-outlet>

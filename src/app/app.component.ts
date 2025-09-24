@@ -1,9 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from './core/services/auth.service';
+import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from './layout/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -11,30 +10,12 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     RouterOutlet,
-    RouterLink,
-    MatButtonModule
+    MatButtonModule,
+    HeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  http = inject(HttpClient);
-  authService = inject(AuthService);
+export class AppComponent {
 
-  ngOnInit() {
-    this.authService.$user.subscribe(user => {
-      if (user) {
-        this.authService.currentUserSig.set({
-          email: user.email!,
-          username: user.displayName!
-        });
-      } else {
-        this.authService.currentUserSig.set(null);
-      }
-    })
-  }
-
-  logout(): void {
-    this.authService.logout();
-  }
 }
