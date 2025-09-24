@@ -1,3 +1,5 @@
 <app-header></app-header>
-
+@if (authService.currentUserSig()) {
+<app-dashboard></app-dashboard>
+}
 <router-outlet></router-outlet>
