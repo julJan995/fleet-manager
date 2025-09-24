@@ -1,12 +1,40 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from './core/services/auth.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    MatButtonModule
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'fleet-manager';
+export class AppComponent implements OnInit {
+  http = inject(HttpClient);
+  authService = inject(AuthService);
+
+  ngOnInit() {
+    this.authService.$user.subscribe(user => {
+      if (user) {
+        this.authService.currentUserSig.set({
+          email: user.email!,
+          username: user.displayName!
+        });
+      } else {
+        this.authService.currentUserSig.set(null);
+      }
+    })
+  }
+
+  logout(): void {
+    this.authService.logout();
+  }
 }
