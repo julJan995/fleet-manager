@@ -1,7 +1,20 @@
 @if (authService.currentUserSig() === null) {
-  <div>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Register</a>
+  <div class="login-register-buttons">
+    <button
+      mat-raised-button
+      color="primary"
+      routerLink="/login"
+    >
+      Login
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      routerLink="/register"
+    >
+      Register
+    </button>
   </div>
 }
 

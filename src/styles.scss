@@ -1,10 +1,25 @@
+@use '@angular/material' as mat;
+
 html, body { height: 100%; }
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
+.mdc-button {
+  font-family: 'Montserrat', sans-serif !important;
+}
 
-.submit-btn {
-  width: 140px;
+.mat-mdc-form-field,
+.mat-mdc-input-element,
+.mat-mdc-select,
+.mat-mdc-select-value,
+.mdc-text-field__input,
+.mdc-floating-label,
+.mat-mdc-form-field-subscript-wrapper,
+.mat-mdc-form-field-hint-wrapper,
+.mat-mdc-form-field-error-wrapper,
+.mat-error,
+.mat-hint {
+  font-family: 'Montserrat', sans-serif !important;
 }
