@@ -1,0 +1,71 @@
+<header id="global-header">
+  <div id="global-header__app-title">
+    <p>{{ appName }}</p>
+    <mat-icon aria-hidden="false" aria-label="Example car icon" fontIcon="toys"></mat-icon>
+  </div>
+
+  @if (authService.currentUserSig() === null) {
+    <div class="login-logout-register-btns">
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/login">
+          Login
+      </button>
+
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/register">
+          Register
+      </button>
+    </div>
+  }
+
+  @if (authService.currentUserSig()) {
+    <div id="global-header__app-menu">
+      <div id="global-header__app-menu__elements">
+        <button
+          class="menu-btn"
+          mat-button
+          [matMenuTriggerFor]="menu">
+            Menu
+        </button>
+        <mat-menu #menu="matMenu" yPosition="below">
+          <button mat-menu-item>Feature 1</button>
+          <button mat-menu-item>Feature 2</button>
+        </mat-menu>
+        <button
+          class="menu-btn"
+          mat-button
+          [matMenuTriggerFor]="feature">
+            Feature 1
+        </button>
+        <mat-menu #feature="matMenu" yPosition="below">
+          <button mat-menu-item>Feature 1</button>
+          <button mat-menu-item>Feature 2</button>
+        </mat-menu>
+        <button
+          class="menu-btn"
+          mat-button
+          [matMenuTriggerFor]="anotherFeature">
+            Feature 2
+        </button>
+        <mat-menu #anotherFeature="matMenu" yPosition="below">
+          <button mat-menu-item>Feature 1</button>
+          <button mat-menu-item>Feature 2</button>
+        </mat-menu>
+      </div>
+      <div class="login-logout-register-btns">
+        <div class="username">{{ `Hello ${authService.currentUserSig()?.username}!` }}</div>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="logout()">
+            Logout
+        </button>
+      </div>
+    </div>
+  }
+
+</header>

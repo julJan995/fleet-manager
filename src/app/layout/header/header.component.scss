@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import '../../assets/styles/variables';
+
+#global-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $header-background-color;
+
+  &__app-title {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__app-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    gap: 20px;
+
+    &__elements {
+      display: flex;
+      margin-left: 10px;
+    }
+  }
+}
+
+.login-logout-register-btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
+  gap: 30px;
+  margin-top: 10px;
+
+  .username {
+    color: $primary-font-color;
+    font-style: italic;
+  }
+}
+
+.menu-btn {
+  width: 120px;
+}
