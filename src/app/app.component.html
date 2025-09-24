@@ -1,5 +1,5 @@
 @if (authService.currentUserSig() === null) {
-  <div class="login-register-buttons">
+  <div class="login-logout-register-btns">
     <button
       mat-raised-button
       color="primary"
@@ -19,9 +19,15 @@
 }
 
 @if (authService.currentUserSig()) {
-  <div>{{ `Hello ${authService.currentUserSig()?.username}!` }}</div>
-  <div>
-    <span (click)="logout()">Logout</span>
+<!--  <div>{{ `Hello ${authService.currentUserSig()?.username}!` }}</div>-->
+  <div class="login-logout-register-btns">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="logout()"
+    >
+      Logout
+    </button>
   </div>
 }
 
