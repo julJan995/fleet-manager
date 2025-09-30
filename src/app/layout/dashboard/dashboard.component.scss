@@ -1,0 +1,11 @@
+.dashboard {
+  display: flex;
+
+  &__status-section {
+    width: 45%;
+  }
+
+  &__table-section {
+    width: 55%;
+  }
+}
