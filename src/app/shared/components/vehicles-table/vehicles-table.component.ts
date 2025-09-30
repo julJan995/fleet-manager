@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, inject } from '@angular/core';
 import { Vehicle } from '../../models/vehicle.interface';
 import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -10,7 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatButton
   ],
   templateUrl: './vehicles-table.component.html',
   styleUrl: './vehicles-table.component.scss'
@@ -19,7 +20,18 @@ export class VehiclesTableComponent implements AfterViewInit {
   http = inject(HttpClient);
   mockData: Vehicle[] = [];
 
-  columnsToDisplay = ['make', 'model', 'year', 'licensePlate'];
+  columnsToDisplay = [
+    'make',
+    'model',
+    'year',
+    'licensePlate'
+  ];
+  columnLabels: Record<string, string> = {
+    make: 'Make',
+    model: 'Model',
+    year: 'Year',
+    licensePlate: 'License Plate',
+  };
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: Vehicle | null = null;
 
@@ -37,5 +49,9 @@ export class VehiclesTableComponent implements AfterViewInit {
         console.log('data', data)
         this.mockData = data;
       });
+  }
+
+  addVehicle() {
+    console.log('Add vehicle');
   }
 }
