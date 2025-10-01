@@ -9,7 +9,8 @@
 </div>
 
 <table mat-table
-       [dataSource]="mockData" multiTemplateDataRows
+       [dataSource]="vehicles()"
+       multiTemplateDataRows
        class="mat-elevation-z8">
   @for (column of columnsToDisplay; track column) {
     <ng-container matColumnDef="{{column}}">
