@@ -1,0 +1,186 @@
+<mat-stepper [linear]="linear" #stepper>
+  <mat-step [stepControl]="vehicleDetailsForm" label="Vehicle Identification">
+    <ng-template matStepLabel>
+      <div class="step-label">
+        <span>Basic vehicle information</span>
+      </div>
+    </ng-template>
+    <form [formGroup]="vehicleDetailsForm">
+      <div class="column-section">
+        <section>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="first-input-cell">
+              <mat-label>Owner</mat-label>
+              <input matInput placeholder="Owner" formControlName="owner" required>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Make</mat-label>
+              <input matInput placeholder="Make" formControlName="make" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Model</mat-label>
+              <input matInput placeholder="Model" formControlName="model" required>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Year of production</mat-label>
+              <input matInput placeholder="1990" formControlName="year" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>License Plate</mat-label>
+              <input matInput placeholder="CBY11111" formControlName="licensePlate" required>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Body Type</mat-label>
+              <input matInput placeholder="Combi" formControlName="bodyType">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Fuel Type</mat-label>
+              <input matInput placeholder="Gasoline" formControlName="fuelType" required>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>VIN</mat-label>
+              <input matInput placeholder="Combi" formControlName="vin">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Current Mileage</mat-label>
+              <input matInput formControlName="currentMileage">
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Power</mat-label>
+              <input matInput formControlName="power">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Notes</mat-label>
+              <input matInput formControlName="notes">
+            </mat-form-field>
+          </div>
+        </section>
+        <section class="flex-end">
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </section>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="usageAndMaintenanceForm" label="Usage & Maintenance">
+    <ng-template matStepLabel>
+      <div class="step-label">
+        <span>Driver assignment, insurance and service</span>
+      </div>
+    </ng-template>
+    <form [formGroup]="usageAndMaintenanceForm">
+      <div class="column-section">
+        <section>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="first-input-cell">
+              <mat-label>Location</mat-label>
+              <input matInput placeholder="Location" formControlName="location">
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Assigned Driver</mat-label>
+              <input matInput placeholder="Driver" formControlName="assignedDriver">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Insurance Provider</mat-label>
+              <input matInput placeholder="Provider" formControlName="insuranceProvider">
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Insurance Policy Number</mat-label>
+              <input matInput formControlName="insurancePolicyNumber">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Insurance Expiry Date</mat-label>
+              <input matInput formControlName="insuranceExpiryDate" required>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Last Service Date</mat-label>
+              <input matInput formControlName="lastServiceDate">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Next Service Due</mat-label>
+              <input matInput formControlName="nextServiceDue" required>
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Service History</mat-label>
+              <input matInput formControlName="serviceHistory">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Additional data</mat-label>
+              <input matInput formControlName="additionalData">
+            </mat-form-field>
+          </div>
+        </section>
+        <section class="flex-end">
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </section>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="financialInfoForm" label="Purchase & Valuation">
+    <ng-template matStepLabel>
+      <div class="step-label">
+        <span>Financial information and documents</span>
+      </div>
+    </ng-template>
+    <form [formGroup]="financialInfoForm">
+      <div class="column-section">
+        <section>
+          <div class="form-row">
+            <mat-form-field appearance="outline" class="first-input-cell">
+              <mat-label>Purchase Date</mat-label>
+              <input matInput formControlName="purchaseDate">
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Purchase Mileage</mat-label>
+              <input matInput formControlName="purchaseMileage">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Purchase Price</mat-label>
+              <input matInput formControlName="purchasePrice">
+            </mat-form-field>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Current Value</mat-label>
+              <input matInput formControlName="currentValue">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Images</mat-label>
+              <input matInput formControlName="imgUrl">
+            </mat-form-field>
+          </div>
+        </section>
+        <section class="flex-end">
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </section>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

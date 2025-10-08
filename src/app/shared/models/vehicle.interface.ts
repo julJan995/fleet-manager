@@ -1,27 +1,31 @@
 export interface Vehicle {
   id: string;
-  bodyType?: string;
+  owner: string;
   make: string;
   model: string;
   year: number;
-  vin?: string;
   licensePlate: string;
-  mileage: number;
+  bodyType?: string;
   fuelType: string;
-  firstRegistrationDate?: Date;
-  purchaseDate?: Date;
-  purchasePrice?: number;
-  currentValue?: number;
+  vin?: string;
+  currentMileage?: number;
+  power?: string;
+  notes?: string;
+
   location?: string;
   assignedDriver?: string;
   insuranceProvider?: string;
   insurancePolicyNumber?: string;
   insuranceExpiryDate: Date;
-  notes?: string;
   lastServiceDate?: Date;
   nextServiceDue: Date;
-  power?: string;
-  imgUrl?: string;
   serviceHistory?: any;
   additionalData?: any;
+
+  purchaseDate?: Date;
+  purchaseMileage?: number;
+  purchasePrice?: number;
+  currentValue?: number;
+  imgUrl?: string;
+
 }

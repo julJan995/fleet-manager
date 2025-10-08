@@ -4,6 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { VehiclesService } from '../../../core/services/vehicles.service';
+import { VehicleFormDialogComponent } from '../../../features/vehicle-form-dialog/vehicle-form-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-vehicles-table',
@@ -18,6 +20,7 @@ import { VehiclesService } from '../../../core/services/vehicles.service';
 })
 export class VehiclesTableComponent {
   vehiclesService = inject(VehiclesService);
+  dialog = inject(MatDialog);
 
   vehicles = this.vehiclesService.vehicles;
 
@@ -47,6 +50,13 @@ export class VehiclesTableComponent {
   }
 
   addVehicle() {
-    console.log('Add vehicle');
+    const dialogRef = this.dialog.open(VehicleFormDialogComponent, {
+      disableClose: true,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
   }
+
 }
