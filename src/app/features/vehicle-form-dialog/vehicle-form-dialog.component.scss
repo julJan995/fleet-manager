@@ -27,12 +27,17 @@
   .form-element-col {
     display: flex;
     flex-direction: column;
+
+    .custom-date-picker-width {
+      width: 212px;
+    }
   }
 
   .mat-error-msg {
     margin-top: -20px;
     margin-bottom: 10px;
     font-style: italic;
+    font-size: 12px;
   }
 }
 

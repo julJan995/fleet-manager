@@ -1,4 +1,4 @@
-import {Component, inject, TemplateRef, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, TemplateRef, ViewChild} from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -6,13 +6,15 @@ import {MatStepper, MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogActions, MatDialogClose} from '@angular/material/dialog';
 import {MatSelect} from '@angular/material/select';
-import {MatOption} from '@angular/material/core';
+import {MatOption, provideNativeDateAdapter} from '@angular/material/core';
 import {YEARS} from '../../shared/utils/years.util';
 import {VehicleBodyType} from '../../shared/models/vehicle-body-type.enum';
 import {VehicleFuelType} from '../../shared/models/vehicle-fuel-type.enum';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-vehicle-form-dialog',
+  providers: [provideNativeDateAdapter()],
   imports: [MatButtonModule,
     MatStepperModule,
     FormsModule,
@@ -22,10 +24,12 @@ import {VehicleFuelType} from '../../shared/models/vehicle-fuel-type.enum';
     MatDialogActions,
     MatDialogClose,
     MatSelect,
-    MatOption
+    MatOption,
+    MatDatepickerModule
   ],
   templateUrl: './vehicle-form-dialog.component.html',
-  styleUrl: './vehicle-form-dialog.component.scss'
+  styleUrl: './vehicle-form-dialog.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VehicleFormDialogComponent {
   private _formBuilder = inject(FormBuilder);
@@ -34,16 +38,19 @@ export class VehicleFormDialogComponent {
   @ViewChild('stepper') stepper!: MatStepper;
   @ViewChild('confirmDialog') confirmDialog!: TemplateRef<any>;
 
+
   linear = false;
   years: number[] = YEARS;
   vehicleBodyType: string[] = Object.values(VehicleBodyType);
   vehicleFuelType: string[] = Object.values(VehicleFuelType);
-  maxVehicleNameLength: number = 30;
-  maxLicensePlateLength: number = 10;
+  maxLicensePlateLength: number = 7;
   maxVinLength: number = 17;
   maxNotesLength: number = 1000;
+  maxStringInputLength: number = 30;
 
-  formValidationErrorMessages: { [key: string]: { [key: string]: string } } = {
+  formValidationErrorMessages: {
+    [key: string]: { [key: string]: string }
+  } = {
     owner: {
       required: 'Owner is required',
       pattern: 'Only letters and spaces are allowed'
@@ -51,11 +58,11 @@ export class VehicleFormDialogComponent {
     make: {
       required: 'Make is required',
       pattern: 'Only letters and spaces are allowed',
-      maxlength: `Max ${this.maxVehicleNameLength} characters allowed`
+      maxlength: `Max ${this.maxStringInputLength} characters allowed`
     },
     model: {
       required: 'Model is required',
-      maxlength: `Max ${this.maxVehicleNameLength} characters allowed`
+      maxlength: `Max ${this.maxStringInputLength} characters allowed`
     },
     year: {
       required: 'Year is required',
@@ -79,13 +86,36 @@ export class VehicleFormDialogComponent {
     },
     notes: {
       maxlength: `Max ${this.maxNotesLength} characters allowed`
+    },
+    location: {
+      pattern: 'Only letters and spaces are allowed',
+      maxlength: `Max ${this.maxStringInputLength} characters allowed`
+    },
+    assignedDriver: {
+      pattern: 'Only letters and spaces are allowed',
+      maxlength: `Max ${this.maxStringInputLength} characters allowed`
+    },
+    insuranceProvider: {
+      maxlength: `Max ${this.maxStringInputLength} characters allowed`
+    },
+    insurancePolicyNumber: {
+      required: 'Insurance policy number is required'
+    },
+    insuranceExpiryDate: {
+      required: 'Insurance expiry date is required'
+    },
+    serviceHistory: {
+      maxlength: `Max ${this.maxNotesLength} characters allowed`
+    },
+    additionalData: {
+      maxlength: `Max ${this.maxNotesLength} characters allowed`
     }
   };
 
   vehicleDetailsForm = this._formBuilder.group({
     owner: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
-    make: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxVehicleNameLength)]],
-    model: ['', [Validators.required, Validators.maxLength(this.maxVehicleNameLength)]],
+    make: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]],
+    model: ['', [Validators.required, Validators.maxLength(this.maxStringInputLength)]],
     year: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     licensePlate: ['', [Validators.required, Validators.maxLength(this.maxLicensePlateLength)]],
     bodyType: ['', [Validators.pattern(/^[A-Za-z\s]+$/)]],
@@ -96,17 +126,16 @@ export class VehicleFormDialogComponent {
     notes: ['', [Validators.maxLength(this.maxNotesLength)]]
   });
 
-
   usageAndMaintenanceForm = this._formBuilder.group({
-    location: [''],
-    assignedDriver: [''],
-    insuranceProvider: [''],
-    insurancePolicyNumber: [''],
-    insuranceExpiryDate: [''],
+    location: ['', [Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]],
+    assignedDriver: ['', [Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]],
+    insuranceProvider: ['', [Validators.maxLength(this.maxStringInputLength)]],
+    insurancePolicyNumber: ['', [Validators.required]],
+    insuranceExpiryDate: ['', [Validators.required]],
     lastServiceDate: [''],
     nextServiceDue: [''],
-    serviceHistory: [''],
-    additionalData: ['']
+    serviceHistory: ['', [Validators.maxLength(this.maxNotesLength)]],
+    additionalData: ['', [Validators.maxLength(this.maxNotesLength)]]
   });
 
   financialInfoForm = this._formBuilder.group({
@@ -131,7 +160,11 @@ export class VehicleFormDialogComponent {
   }
 
   getErrorMessage(controlName: string): string[] {
-    const control = this.vehicleDetailsForm.get(controlName);
+    const control =
+      this.vehicleDetailsForm.get(controlName)
+      || this.usageAndMaintenanceForm.get(controlName)
+      || this.financialInfoForm.get(controlName);
+
     if (!control || !control.errors || !control.touched) return [];
 
     const messages: string[] = [];
@@ -144,6 +177,5 @@ export class VehicleFormDialogComponent {
 
     return messages;
   }
-
 
 }

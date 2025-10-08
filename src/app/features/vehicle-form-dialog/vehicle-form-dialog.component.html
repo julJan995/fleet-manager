@@ -172,6 +172,11 @@
                 <mat-label>Location</mat-label>
                 <input matInput placeholder="Location" formControlName="location">
               </mat-form-field>
+              @if (getErrorMessage('location')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('location') }}
+                </mat-error>
+              }
             </div>
           </div>
           <div class="form-row">
@@ -180,12 +185,22 @@
                 <mat-label>Assigned Driver</mat-label>
                 <input matInput placeholder="Driver" formControlName="assignedDriver">
               </mat-form-field>
+              @if (getErrorMessage('assignedDriver')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('assignedDriver') }}
+                </mat-error>
+              }
             </div>
             <div class="form-element-col">
               <mat-form-field appearance="outline">
                 <mat-label>Insurance Provider</mat-label>
                 <input matInput placeholder="Provider" formControlName="insuranceProvider">
               </mat-form-field>
+              @if (getErrorMessage('insuranceProvider')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('insuranceProvider') }}
+                </mat-error>
+              }
             </div>
           </div>
           <div class="form-row">
@@ -194,40 +209,79 @@
                 <mat-label>Insurance Policy Number</mat-label>
                 <input matInput formControlName="insurancePolicyNumber">
               </mat-form-field>
+              @if (getErrorMessage('insurancePolicyNumber')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('insurancePolicyNumber') }}
+                </mat-error>
+              }
             </div>
             <div class="form-element-col">
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" class="custom-date-picker-width">
                 <mat-label>Insurance Expiry Date</mat-label>
-                <input matInput formControlName="insuranceExpiryDate">
+                <input matInput [matDatepicker]="insuranceExpiryDate" formControlName="insuranceExpiryDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="insuranceExpiryDate"></mat-datepicker-toggle>
+                <mat-datepicker #insuranceExpiryDate></mat-datepicker>
               </mat-form-field>
+              @if (getErrorMessage('insuranceExpiryDate')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('insuranceExpiryDate') }}
+                </mat-error>
+              }
             </div>
           </div>
           <div class="form-row">
             <div class="form-element-col">
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" class="custom-date-picker-width">
                 <mat-label>Last Service Date</mat-label>
-                <input matInput formControlName="lastServiceDate">
+                <input matInput [matDatepicker]="lastServiceDate" formControlName="lastServiceDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="lastServiceDate"></mat-datepicker-toggle>
+                <mat-datepicker #lastServiceDate></mat-datepicker>
               </mat-form-field>
+              @if (getErrorMessage('lastServiceDate')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('lastServiceDate') }}
+                </mat-error>
+              }
             </div>
             <div class="form-element-col">
-              <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" class="custom-date-picker-width">
                 <mat-label>Next Service Due</mat-label>
-                <input matInput formControlName="nextServiceDue">
+                <input matInput [matDatepicker]="nextServiceDue" formControlName="nextServiceDue">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="nextServiceDue"></mat-datepicker-toggle>
+                <mat-datepicker #nextServiceDue></mat-datepicker>
               </mat-form-field>
+              @if (getErrorMessage('nextServiceDue')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('nextServiceDue') }}
+                </mat-error>
+              }
             </div>
           </div>
           <div class="form-row">
             <div class="form-element-col">
               <mat-form-field appearance="outline">
                 <mat-label>Service History</mat-label>
-                <input matInput formControlName="serviceHistory">
+                <textarea matInput formControlName="serviceHistory"></textarea>
               </mat-form-field>
+              @if (getErrorMessage('serviceHistory')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('serviceHistory') }}
+                </mat-error>
+              }
             </div>
             <div class="form-element-col">
               <mat-form-field appearance="outline">
                 <mat-label>Additional data</mat-label>
-                <input matInput formControlName="additionalData">
+                <textarea matInput formControlName="additionalData"></textarea>
               </mat-form-field>
+              @if (getErrorMessage('additionalData')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('additionalData') }}
+                </mat-error>
+              }
             </div>
           </div>
         </section>
@@ -278,12 +332,13 @@
                 <input matInput formControlName="currentValue">
               </mat-form-field>
             </div>
-            <div class="form-element-col">
-              <mat-form-field appearance="outline">
-                <mat-label>Images</mat-label>
-                <input matInput formControlName="imgUrl">
-              </mat-form-field>
-            </div>
+<!--            TO DO: https://github.com/julJan995/fleet-manager/issues/10 -->
+<!--            <div class="form-element-col">-->
+<!--              <mat-form-field appearance="outline">-->
+<!--                <mat-label>Images</mat-label>-->
+<!--                <input matInput formControlName="imgUrl">-->
+<!--              </mat-form-field>-->
+<!--            </div>-->
           </div>
         </section>
         <section class="flex-end">
