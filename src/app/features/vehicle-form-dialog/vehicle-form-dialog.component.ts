@@ -109,6 +109,15 @@ export class VehicleFormDialogComponent {
     },
     additionalData: {
       maxlength: `Max ${this.maxNotesLength} characters allowed`
+    },
+    purchaseMileage: {
+      pattern: 'Power must be a number'
+    },
+    purchasePrice: {
+      pattern: 'Price must be a number'
+    },
+    currentValue: {
+      pattern: 'Price must be a number'
     }
   };
 
@@ -140,10 +149,9 @@ export class VehicleFormDialogComponent {
 
   financialInfoForm = this._formBuilder.group({
     purchaseDate: [''],
-    purchaseMileage: [''],
-    purchasePrice: [''],
-    currentValue: [''],
-    imgUrl: ['']
+    purchaseMileage: ['', [Validators.pattern(/^\d+$/)]],
+    purchasePrice: ['', [Validators.pattern(/^\d+$/)]],
+    currentValue: ['', [Validators.pattern(/^\d+$/)]]
   });
 
   openResetConfirmDialog() {
