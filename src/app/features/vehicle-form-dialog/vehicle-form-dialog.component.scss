@@ -1,3 +1,5 @@
+@use '../../assets/styles/variables' as *;
+
 .mat-stepper-horizontal {
   margin-top: 8px;
 }
@@ -31,4 +33,16 @@
 .first-input-cell {
   width: 445px;
   margin-top: 15px;
+}
+
+.warn-text {
+  color: $warn-text-color;
+
+  &:hover {
+    background-color: $warn-background-color;
+  }
+}
+
+.dialog-title {
+  margin: 20px;
 }

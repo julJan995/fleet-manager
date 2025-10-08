@@ -177,7 +177,17 @@
         <section class="flex-end">
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button class="warn-text" (click)="openResetConfirmDialog()">Reset</button>
+
+            <ng-template #confirmDialog>
+              <div class="dialog-title">
+                <p>Are you sure you want to reset the form?</p>
+              </div>
+              <mat-dialog-actions align="end">
+                <button mat-button mat-dialog-close>No</button>
+                <button mat-button class="warn-text" [mat-dialog-close]="true">Yes</button>
+              </mat-dialog-actions>
+            </ng-template>
           </div>
         </section>
       </div>
