@@ -27,7 +27,11 @@
           <div class="form-row">
             <mat-form-field appearance="outline">
               <mat-label>Year of production</mat-label>
-              <input matInput placeholder="1990" formControlName="year" required>
+              <mat-select formControlName="year" required>
+                @for (year of years; track year) {
+                  <mat-option [value]="year">{{ year }}</mat-option>
+                }
+              </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>License Plate</mat-label>
@@ -37,11 +41,19 @@
           <div class="form-row">
             <mat-form-field appearance="outline">
               <mat-label>Body Type</mat-label>
-              <input matInput placeholder="Combi" formControlName="bodyType">
+              <mat-select formControlName="bodyType" required>
+                @for (bodyType of vehicleBodyType; track bodyType) {
+                  <mat-option [value]="bodyType">{{ bodyType }}</mat-option>
+                }
+              </mat-select>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Fuel Type</mat-label>
-              <input matInput placeholder="Gasoline" formControlName="fuelType" required>
+              <mat-select formControlName="fuelType" required>
+                @for (fuelType of vehicleFuelType; track fuelType) {
+                  <mat-option [value]="fuelType">{{ fuelType }}</mat-option>
+                }
+              </mat-select>
             </mat-form-field>
           </div>
           <div class="form-row">
@@ -50,13 +62,13 @@
               <input matInput placeholder="Combi" formControlName="vin">
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <mat-label>Current Mileage</mat-label>
+              <mat-label>Current Mileage (km)</mat-label>
               <input matInput formControlName="currentMileage">
             </mat-form-field>
           </div>
           <div class="form-row">
             <mat-form-field appearance="outline">
-              <mat-label>Power</mat-label>
+              <mat-label>Power (KM)</mat-label>
               <input matInput formControlName="power">
             </mat-form-field>
             <mat-form-field appearance="outline">

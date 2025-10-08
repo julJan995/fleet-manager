@@ -5,6 +5,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepper, MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialog, MatDialogActions, MatDialogClose} from '@angular/material/dialog';
+import {MatSelect} from '@angular/material/select';
+import {MatOption} from '@angular/material/core';
+import {YEARS} from '../../shared/utils/years.util';
+import {VehicleBodyType} from '../../shared/models/vehicle-body-type.enum';
+import {VehicleFuelType} from '../../shared/models/vehicle-fuel-type.enum';
 
 @Component({
   selector: 'app-vehicle-form-dialog',
@@ -15,7 +20,9 @@ import {MatDialog, MatDialogActions, MatDialogClose} from '@angular/material/dia
     MatFormFieldModule,
     MatInputModule,
     MatDialogActions,
-    MatDialogClose
+    MatDialogClose,
+    MatSelect,
+    MatOption
   ],
   templateUrl: './vehicle-form-dialog.component.html',
   styleUrl: './vehicle-form-dialog.component.scss'
@@ -28,18 +35,23 @@ export class VehicleFormDialogComponent {
   @ViewChild('confirmDialog') confirmDialog!: TemplateRef<any>;
 
   linear = false;
+  years: number[] = YEARS;
+  vehicleBodyType: string[] = Object.values(VehicleBodyType);
+  vehicleFuelType: string[] = Object.values(VehicleFuelType);
+  maxLicensePlateLength: number = 10;
+  maxVinLength: number = 17;
 
   vehicleDetailsForm = this._formBuilder.group({
-    owner: ['', Validators.required],
-    make: ['', Validators.required],
+    owner: ['', Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)],
+    make: ['', Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)],
     model: ['', Validators.required],
-    year: ['', Validators.required],
-    licensePlate: ['', Validators.required],
-    bodyType: [''],
-    fuelType: ['', Validators.required],
-    vin: [''],
-    currentMileage: [''],
-    power: [''],
+    year: ['', Validators.required, Validators.pattern(/^\d+$/)],
+    licensePlate: ['', Validators.required, Validators.maxLength(this.maxLicensePlateLength)],
+    bodyType: ['', Validators.pattern(/^[A-Za-z\s]+$/)],
+    fuelType: ['', Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)],
+    vin: ['', Validators.maxLength(this.maxVinLength)],
+    currentMileage: ['', Validators.pattern(/^\d+$/)],
+    power: ['', Validators.pattern(/^\d+$/)],
     notes: ['']
   });
   usageAndMaintenanceForm = this._formBuilder.group({
@@ -73,4 +85,5 @@ export class VehicleFormDialogComponent {
       }
     });
   }
+
 }
