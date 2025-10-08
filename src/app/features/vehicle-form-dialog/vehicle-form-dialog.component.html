@@ -9,72 +9,144 @@
       <div class="column-section">
         <section>
           <div class="form-row">
-            <mat-form-field appearance="outline" class="first-input-cell">
-              <mat-label>Owner</mat-label>
-              <input matInput placeholder="Owner" formControlName="owner" required>
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline" class="first-input-cell">
+                <mat-label>Owner</mat-label>
+                <input matInput placeholder="Owner" formControlName="owner">
+              </mat-form-field>
+              @if (getErrorMessage('owner')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('owner') }}
+                </mat-error>
+              }
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Make</mat-label>
-              <input matInput placeholder="Make" formControlName="make" required>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Model</mat-label>
-              <input matInput placeholder="Model" formControlName="model" required>
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Make</mat-label>
+                <input matInput placeholder="Make" formControlName="make">
+              </mat-form-field>
+              @if (getErrorMessage('make')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('make') }}
+                </mat-error>
+              }
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Model</mat-label>
+                <input matInput placeholder="Model" formControlName="model">
+              </mat-form-field>
+              @if (getErrorMessage('model')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('model') }}
+                </mat-error>
+              }
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Year of production</mat-label>
-              <mat-select formControlName="year" required>
-                @for (year of years; track year) {
-                  <mat-option [value]="year">{{ year }}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>License Plate</mat-label>
-              <input matInput placeholder="CBY11111" formControlName="licensePlate" required>
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Year of production</mat-label>
+                <mat-select formControlName="year">
+                  @for (year of years; track year) {
+                    <mat-option [value]="year">{{ year }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              @if (getErrorMessage('year')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('year') }}
+                </mat-error>
+              }
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>License Plate</mat-label>
+                <input matInput placeholder="CBY11111" formControlName="licensePlate">
+              </mat-form-field>
+              @if (getErrorMessage('licensePlate')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('licensePlate') }}
+                </mat-error>
+              }
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Body Type</mat-label>
-              <mat-select formControlName="bodyType" required>
-                @for (bodyType of vehicleBodyType; track bodyType) {
-                  <mat-option [value]="bodyType">{{ bodyType }}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Fuel Type</mat-label>
-              <mat-select formControlName="fuelType" required>
-                @for (fuelType of vehicleFuelType; track fuelType) {
-                  <mat-option [value]="fuelType">{{ fuelType }}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Body Type</mat-label>
+                <mat-select formControlName="bodyType">
+                  @for (bodyType of vehicleBodyType; track bodyType) {
+                    <mat-option [value]="bodyType">{{ bodyType }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Fuel Type</mat-label>
+                <mat-select formControlName="fuelType">
+                  @for (fuelType of vehicleFuelType; track fuelType) {
+                    <mat-option [value]="fuelType">{{ fuelType }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+              @if (getErrorMessage('fuelType')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('fuelType') }}
+                </mat-error>
+              }
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>VIN</mat-label>
-              <input matInput placeholder="Combi" formControlName="vin">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Current Mileage (km)</mat-label>
-              <input matInput formControlName="currentMileage">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>VIN</mat-label>
+                <input matInput placeholder="Combi" formControlName="vin">
+              </mat-form-field>
+              @if (getErrorMessage('vin')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('vin') }}
+                </mat-error>
+              }
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Current Mileage (km)</mat-label>
+                <input matInput formControlName="currentMileage">
+              </mat-form-field>
+              @if (getErrorMessage('currentMileage')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('currentMileage') }}
+                </mat-error>
+              }
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Power (KM)</mat-label>
-              <input matInput formControlName="power">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Notes</mat-label>
-              <input matInput formControlName="notes">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Power (KM)</mat-label>
+                <input matInput formControlName="power">
+              </mat-form-field>
+              @if (getErrorMessage('power')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('power') }}
+                </mat-error>
+              }
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Notes</mat-label>
+                <input matInput formControlName="notes">
+              </mat-form-field>
+              @if (getErrorMessage('notes')) {
+                <mat-error class="mat-error-msg">
+                  {{ getErrorMessage('notes') }}
+                </mat-error>
+              }
+            </div>
           </div>
         </section>
         <section class="flex-end">
@@ -95,50 +167,68 @@
       <div class="column-section">
         <section>
           <div class="form-row">
-            <mat-form-field appearance="outline" class="first-input-cell">
-              <mat-label>Location</mat-label>
-              <input matInput placeholder="Location" formControlName="location">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline" class="first-input-cell">
+                <mat-label>Location</mat-label>
+                <input matInput placeholder="Location" formControlName="location">
+              </mat-form-field>
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Assigned Driver</mat-label>
-              <input matInput placeholder="Driver" formControlName="assignedDriver">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Insurance Provider</mat-label>
-              <input matInput placeholder="Provider" formControlName="insuranceProvider">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Assigned Driver</mat-label>
+                <input matInput placeholder="Driver" formControlName="assignedDriver">
+              </mat-form-field>
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Insurance Provider</mat-label>
+                <input matInput placeholder="Provider" formControlName="insuranceProvider">
+              </mat-form-field>
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Insurance Policy Number</mat-label>
-              <input matInput formControlName="insurancePolicyNumber">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Insurance Expiry Date</mat-label>
-              <input matInput formControlName="insuranceExpiryDate" required>
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Insurance Policy Number</mat-label>
+                <input matInput formControlName="insurancePolicyNumber">
+              </mat-form-field>
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Insurance Expiry Date</mat-label>
+                <input matInput formControlName="insuranceExpiryDate">
+              </mat-form-field>
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Last Service Date</mat-label>
-              <input matInput formControlName="lastServiceDate">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Next Service Due</mat-label>
-              <input matInput formControlName="nextServiceDue" required>
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Last Service Date</mat-label>
+                <input matInput formControlName="lastServiceDate">
+              </mat-form-field>
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Next Service Due</mat-label>
+                <input matInput formControlName="nextServiceDue">
+              </mat-form-field>
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Service History</mat-label>
-              <input matInput formControlName="serviceHistory">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Additional data</mat-label>
-              <input matInput formControlName="additionalData">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Service History</mat-label>
+                <input matInput formControlName="serviceHistory">
+              </mat-form-field>
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Additional data</mat-label>
+                <input matInput formControlName="additionalData">
+              </mat-form-field>
+            </div>
           </div>
         </section>
         <section class="flex-end">
@@ -160,30 +250,40 @@
       <div class="column-section">
         <section>
           <div class="form-row">
-            <mat-form-field appearance="outline" class="first-input-cell">
-              <mat-label>Purchase Date</mat-label>
-              <input matInput formControlName="purchaseDate">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline" class="first-input-cell">
+                <mat-label>Purchase Date</mat-label>
+                <input matInput formControlName="purchaseDate">
+              </mat-form-field>
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Purchase Mileage</mat-label>
-              <input matInput formControlName="purchaseMileage">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Purchase Price</mat-label>
-              <input matInput formControlName="purchasePrice">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Purchase Mileage</mat-label>
+                <input matInput formControlName="purchaseMileage">
+              </mat-form-field>
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Purchase Price</mat-label>
+                <input matInput formControlName="purchasePrice">
+              </mat-form-field>
+            </div>
           </div>
           <div class="form-row">
-            <mat-form-field appearance="outline">
-              <mat-label>Current Value</mat-label>
-              <input matInput formControlName="currentValue">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>Images</mat-label>
-              <input matInput formControlName="imgUrl">
-            </mat-form-field>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Current Value</mat-label>
+                <input matInput formControlName="currentValue">
+              </mat-form-field>
+            </div>
+            <div class="form-element-col">
+              <mat-form-field appearance="outline">
+                <mat-label>Images</mat-label>
+                <input matInput formControlName="imgUrl">
+              </mat-form-field>
+            </div>
           </div>
         </section>
         <section class="flex-end">

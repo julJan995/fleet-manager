@@ -38,22 +38,65 @@ export class VehicleFormDialogComponent {
   years: number[] = YEARS;
   vehicleBodyType: string[] = Object.values(VehicleBodyType);
   vehicleFuelType: string[] = Object.values(VehicleFuelType);
+  maxVehicleNameLength: number = 30;
   maxLicensePlateLength: number = 10;
   maxVinLength: number = 17;
+  maxNotesLength: number = 1000;
+
+  formValidationErrorMessages: { [key: string]: { [key: string]: string } } = {
+    owner: {
+      required: 'Owner is required',
+      pattern: 'Only letters and spaces are allowed'
+    },
+    make: {
+      required: 'Make is required',
+      pattern: 'Only letters and spaces are allowed',
+      maxlength: `Max ${this.maxVehicleNameLength} characters allowed`
+    },
+    model: {
+      required: 'Model is required',
+      maxlength: `Max ${this.maxVehicleNameLength} characters allowed`
+    },
+    year: {
+      required: 'Year is required',
+      pattern: 'Year must be a number'
+    },
+    licensePlate: {
+      required: 'License plate is required',
+      maxlength: `Max ${this.maxLicensePlateLength} characters allowed`
+    },
+    fuelType: {
+      pattern: 'Fuel type is required'
+    },
+    vin: {
+      maxlength: `Max ${this.maxVinLength} characters allowed`
+    },
+    currentMileage: {
+      pattern: 'Mileage must be a number'
+    },
+    power: {
+      pattern: 'Power must be a number'
+    },
+    notes: {
+      maxlength: `Max ${this.maxNotesLength} characters allowed`
+    }
+  };
 
   vehicleDetailsForm = this._formBuilder.group({
-    owner: ['', Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)],
-    make: ['', Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)],
-    model: ['', Validators.required],
-    year: ['', Validators.required, Validators.pattern(/^\d+$/)],
-    licensePlate: ['', Validators.required, Validators.maxLength(this.maxLicensePlateLength)],
-    bodyType: ['', Validators.pattern(/^[A-Za-z\s]+$/)],
-    fuelType: ['', Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)],
-    vin: ['', Validators.maxLength(this.maxVinLength)],
-    currentMileage: ['', Validators.pattern(/^\d+$/)],
-    power: ['', Validators.pattern(/^\d+$/)],
-    notes: ['']
+    owner: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
+    make: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxVehicleNameLength)]],
+    model: ['', [Validators.required, Validators.maxLength(this.maxVehicleNameLength)]],
+    year: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+    licensePlate: ['', [Validators.required, Validators.maxLength(this.maxLicensePlateLength)]],
+    bodyType: ['', [Validators.pattern(/^[A-Za-z\s]+$/)]],
+    fuelType: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
+    vin: ['', [Validators.maxLength(this.maxVinLength)]],
+    currentMileage: ['', [Validators.pattern(/^\d+$/)]],
+    power: ['', [Validators.pattern(/^\d+$/)]],
+    notes: ['', [Validators.maxLength(this.maxNotesLength)]]
   });
+
+
   usageAndMaintenanceForm = this._formBuilder.group({
     location: [''],
     assignedDriver: [''],
@@ -65,6 +108,7 @@ export class VehicleFormDialogComponent {
     serviceHistory: [''],
     additionalData: ['']
   });
+
   financialInfoForm = this._formBuilder.group({
     purchaseDate: [''],
     purchaseMileage: [''],
@@ -85,5 +129,21 @@ export class VehicleFormDialogComponent {
       }
     });
   }
+
+  getErrorMessage(controlName: string): string[] {
+    const control = this.vehicleDetailsForm.get(controlName);
+    if (!control || !control.errors || !control.touched) return [];
+
+    const messages: string[] = [];
+    const errors = control.errors;
+
+    for (const errorKey of Object.keys(errors)) {
+      const message = this.formValidationErrorMessages[controlName]?.[errorKey];
+      if (message) messages.push(message);
+    }
+
+    return messages;
+  }
+
 
 }

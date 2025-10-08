@@ -23,6 +23,17 @@
   display: flex;
   gap: 20px;
   justify-content: center;
+
+  .form-element-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mat-error-msg {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
 }
 
 .flex-end {
@@ -46,3 +57,5 @@
 .dialog-title {
   margin: 20px;
 }
+
+
