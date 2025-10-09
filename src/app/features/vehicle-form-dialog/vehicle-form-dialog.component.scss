@@ -1,0 +1,76 @@
+@use '../../assets/styles/variables' as *;
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.column-section {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.step-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: normal;
+  line-height: 1.4;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+
+  .form-element-col {
+    display: flex;
+    flex-direction: column;
+
+    .custom-date-picker-width {
+      width: 212px;
+    }
+  }
+
+  .mat-error-msg {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 12px;
+  }
+}
+
+.submit-vehicle-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 36px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.first-input-cell {
+  width: 445px;
+  margin-top: 15px;
+}
+
+.warn-text {
+  color: $warn-text-color;
+
+  &:hover {
+    background-color: $warn-background-color;
+  }
+}
+
+.dialog-title {
+  margin: 20px;
+}
+
+.custom-margin {
+  margin-top: 15px;
+}
+
+
