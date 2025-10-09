@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, inject, TemplateRef, ViewChild} from '@angular/core';
-import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepper, MatStepperModule} from '@angular/material/stepper';
@@ -11,6 +11,9 @@ import {YEARS} from '../../shared/utils/years.util';
 import {VehicleBodyType} from '../../shared/models/vehicle-body-type.enum';
 import {VehicleFuelType} from '../../shared/models/vehicle-fuel-type.enum';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {VehiclesService} from '../../core/services/vehicles.service';
+import {Vehicle} from '../../shared/models/vehicle.interface';
+import {take} from 'rxjs';
 
 @Component({
   selector: 'app-vehicle-form-dialog',
@@ -32,8 +35,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VehicleFormDialogComponent {
-  private _formBuilder = inject(FormBuilder);
   private _dialog = inject(MatDialog);
+  private _vehicleService = inject(VehiclesService);
 
   @ViewChild('stepper') stepper!: MatStepper;
   @ViewChild('confirmDialog') confirmDialog!: TemplateRef<any>;
@@ -43,7 +46,7 @@ export class VehicleFormDialogComponent {
   years: number[] = YEARS;
   vehicleBodyType: string[] = Object.values(VehicleBodyType);
   vehicleFuelType: string[] = Object.values(VehicleFuelType);
-  maxLicensePlateLength: number = 7;
+  maxLicensePlateLength: number = 8;
   maxVinLength: number = 17;
   maxNotesLength: number = 1000;
   maxStringInputLength: number = 30;
@@ -121,38 +124,104 @@ export class VehicleFormDialogComponent {
     }
   };
 
-  vehicleDetailsForm = this._formBuilder.group({
-    owner: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
-    make: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]],
-    model: ['', [Validators.required, Validators.maxLength(this.maxStringInputLength)]],
-    year: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-    licensePlate: ['', [Validators.required, Validators.maxLength(this.maxLicensePlateLength)]],
-    bodyType: ['', [Validators.pattern(/^[A-Za-z\s]+$/)]],
-    fuelType: ['', [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]],
-    vin: ['', [Validators.maxLength(this.maxVinLength)]],
-    currentMileage: ['', [Validators.pattern(/^\d+$/)]],
-    power: ['', [Validators.pattern(/^\d+$/)]],
-    notes: ['', [Validators.maxLength(this.maxNotesLength)]]
+  vehicleDetailsForm = new FormGroup({
+    owner: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]
+    }),
+    make: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [
+        Validators.required,
+        Validators.pattern(/^[A-Za-z\s]+$/),
+        Validators.maxLength(this.maxStringInputLength)
+      ]
+    }),
+    model: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.maxLength(this.maxStringInputLength)]
+    }),
+    year: new FormControl<number | null>(null, {
+      validators: [Validators.required, Validators.pattern(/^\d+$/)],
+      nonNullable: true
+    }),
+    licensePlate: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.maxLength(this.maxLicensePlateLength)]
+    }),
+    bodyType: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.pattern(/^[A-Za-z\s]+$/)]
+    }),
+    fuelType: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.pattern(/^[A-Za-z\s]+$/)]
+    }),
+    vin: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.maxLength(this.maxVinLength)]
+    }),
+    currentMileage: new FormControl<number | null>(null, {
+      validators: [Validators.pattern(/^\d+$/)]
+    }),
+    power: new FormControl<number | null>(null, {
+      validators: [Validators.pattern(/^\d+$/)]
+    }),
+    notes: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.maxLength(this.maxNotesLength)]
+    })
   });
 
-  usageAndMaintenanceForm = this._formBuilder.group({
-    location: ['', [Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]],
-    assignedDriver: ['', [Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]],
-    insuranceProvider: ['', [Validators.maxLength(this.maxStringInputLength)]],
-    insurancePolicyNumber: ['', [Validators.required]],
-    insuranceExpiryDate: ['', [Validators.required]],
-    lastServiceDate: [''],
-    nextServiceDue: [''],
-    serviceHistory: ['', [Validators.maxLength(this.maxNotesLength)]],
-    additionalData: ['', [Validators.maxLength(this.maxNotesLength)]]
+  usageAndMaintenanceForm = new FormGroup({
+    location: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]
+    }),
+    assignedDriver: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.pattern(/^[A-Za-z\s]+$/), Validators.maxLength(this.maxStringInputLength)]
+    }),
+    insuranceProvider: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.maxLength(this.maxStringInputLength)]
+    }),
+    insurancePolicyNumber: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required]
+    }),
+    insuranceExpiryDate: new FormControl<Date | null>(null, {
+      validators: [Validators.required]
+    }),
+    lastServiceDate: new FormControl<Date | null>(null, {
+      nonNullable: true
+    }),
+    nextServiceDue: new FormControl<Date | null>(null, {
+      nonNullable: true
+    }),
+    serviceHistory: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.maxLength(this.maxNotesLength)]
+    }),
+    additionalData: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.maxLength(this.maxNotesLength)]
+    })
   });
 
-  financialInfoForm = this._formBuilder.group({
-    purchaseDate: [''],
-    purchaseMileage: ['', [Validators.pattern(/^\d+$/)]],
-    purchasePrice: ['', [Validators.pattern(/^\d+$/)]],
-    currentValue: ['', [Validators.pattern(/^\d+$/)]]
+  financialInfoForm = new FormGroup({
+    purchaseDate: new FormControl<Date | null>(null),
+    purchaseMileage: new FormControl<number | null>(null, {
+      validators: [Validators.pattern(/^\d+$/)]
+    }),
+    purchasePrice: new FormControl<number | null>(null, {
+      validators: [Validators.pattern(/^\d+$/)]
+    }),
+    currentValue: new FormControl<number | null>(null, {
+      validators: [Validators.pattern(/^\d+$/)]
+    })
   });
+
 
   openResetConfirmDialog() {
     const dialogRef = this._dialog.open(this.confirmDialog, {
@@ -186,4 +255,35 @@ export class VehicleFormDialogComponent {
     return messages;
   }
 
+  addVehicle() {
+    if (
+      this.vehicleDetailsForm.invalid ||
+      this.usageAndMaintenanceForm.invalid ||
+      this.financialInfoForm.invalid
+    ) {
+      this.vehicleDetailsForm.markAllAsTouched();
+      this.usageAndMaintenanceForm.markAllAsTouched();
+      this.financialInfoForm.markAllAsTouched();
+      return;
+    }
+
+    const raw = {
+      ...this.vehicleDetailsForm.value,
+      ...this.usageAndMaintenanceForm.value,
+      ...this.financialInfoForm.value
+    };
+
+    const vehiclePayload: Partial<Vehicle> = Object.fromEntries(
+      Object.entries(raw).filter(([_, v]) => v !== null)
+    );
+    this._vehicleService.addVehicle(vehiclePayload)
+      .pipe(take(1))
+      .subscribe({
+        next: (docRef) => {
+          console.log('Vehicle added with ID:', docRef.id);
+          this.stepper.reset();
+        },
+        error: (err) => console.error('Error adding vehicle:', err)
+      });
+  }
 }

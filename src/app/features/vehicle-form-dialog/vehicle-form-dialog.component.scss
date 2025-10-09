@@ -41,9 +41,15 @@
   }
 }
 
-.flex-end {
+.submit-vehicle-btn {
   display: flex;
   justify-content: flex-end;
+  margin-right: 36px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
 }
 
 .first-input-cell {

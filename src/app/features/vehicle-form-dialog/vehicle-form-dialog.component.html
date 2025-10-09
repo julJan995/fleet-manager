@@ -104,7 +104,7 @@
             <div class="form-element-col">
               <mat-form-field appearance="outline">
                 <mat-label>VIN</mat-label>
-                <input matInput placeholder="Combi" formControlName="vin">
+                <input matInput formControlName="vin">
               </mat-form-field>
               @if (getErrorMessage('vin')) {
                 <mat-error class="mat-error-msg">
@@ -149,7 +149,7 @@
             </div>
           </div>
         </section>
-        <section class="flex-end">
+        <section class="flex-center">
           <div>
             <button mat-button matStepperNext>Next</button>
           </div>
@@ -285,7 +285,7 @@
             </div>
           </div>
         </section>
-        <section class="flex-end">
+        <section class="flex-center">
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button matStepperNext>Next</button>
@@ -349,7 +349,14 @@
               }
             </div>
           </div>
-          <div class="form-row">
+          <div class="form-row submit-vehicle-btn">
+            <button
+              mat-flat-button
+              color="primary"
+              type="submit"
+              (click)="addVehicle()">
+              Save Vehicle
+            </button>
 <!--            TO DO: https://github.com/julJan995/fleet-manager/issues/10 -->
 <!--            <div class="form-element-col">-->
 <!--              <mat-form-field appearance="outline">-->
@@ -359,7 +366,7 @@
 <!--            </div>-->
           </div>
         </section>
-        <section class="flex-end">
+        <section class="flex-center">
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button class="warn-text" (click)="openResetConfirmDialog()">Reset</button>

@@ -11,7 +11,6 @@ export interface Vehicle {
   currentMileage?: number;
   power?: string;
   notes?: string;
-
   location?: string;
   assignedDriver?: string;
   insuranceProvider?: string;
@@ -21,11 +20,9 @@ export interface Vehicle {
   nextServiceDue: Date;
   serviceHistory?: any;
   additionalData?: any;
-
   purchaseDate?: Date;
   purchaseMileage?: number;
   purchasePrice?: number;
   currentValue?: number;
-  imgUrl?: string;
-
+  // imgUrl?: string;
 }

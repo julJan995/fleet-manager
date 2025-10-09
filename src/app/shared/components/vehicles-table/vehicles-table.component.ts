@@ -51,7 +51,7 @@ export class VehiclesTableComponent {
 
   addVehicle() {
     const dialogRef = this.dialog.open(VehicleFormDialogComponent, {
-      disableClose: true,
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
